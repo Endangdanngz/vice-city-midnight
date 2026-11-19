@@ -1,0 +1,148 @@
+/* Vice City Midnight theme: deep midnight navy, a neon pink-to-cyan
+   sunset gradient, and glowing grade colours. The display face is
+   Noto Sans Display, vendored under app/fonts/ (SIL OFL 1.1) so the
+   app never reaches for the network. */
+
+@font-face {
+  font-family: "Noto Sans Display";
+  src: url("../fonts/NotoSansDisplay-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Noto Sans Display";
+  src: url("../fonts/NotoSansDisplay-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-display: swap;
+}
+
+:root {
+  --bg: #060a1c;
+  --bg-2: #0a1030;
+  --panel: #0d1434;
+  --panel-2: #111a42;
+  --line: #26306b;
+  --line-soft: #1a2350;
+  --text: #eef1ff;
+  --muted: #9aa6d8;
+  --faint: #6b78b8;
+  --pink: #ff2e88;
+  --orange: #ff9a3d;
+  --cyan: #2ee6ff;
+  --violet: #8b5cff;
+  --sunset: linear-gradient(92deg, #ff2e88 0%, #ff9a3d 48%, #2ee6ff 100%);
+  --platinum: #d9fbff;
+  --gold: #ffd257;
+  --silver: #cfd9e6;
+  --bronze: #eda15f;
+  --danger: #ff5470;
+  --ok: #3dffb0;
+  --radius: 14px;
+  --font-body: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Noto Sans Display", "Segoe UI", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scrollbar-color: var(--line) var(--bg); }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1100px 480px at 85% -120px, rgba(139, 92, 255, 0.28), transparent 60%),
+    radial-gradient(900px 420px at -10% 0%, rgba(255, 46, 136, 0.16), transparent 55%),
+    linear-gradient(180deg, var(--bg-2), var(--bg) 340px);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.12; margin: 0; }
+a { color: var(--cyan); }
+button { font-family: inherit; }
+input, select, textarea { font-family: inherit; }
+
+::selection { background: rgba(255, 46, 136, 0.55); }
+
+/* Grade chips and text */
+.chip {
+  display: inline-block;
+  padding: 1px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid;
+  white-space: nowrap;
+}
+.chip-platinum { color: var(--platinum); border-color: var(--cyan); background: rgba(46, 230, 255, 0.12); box-shadow: 0 0 10px rgba(46, 230, 255, 0.35); }
+.chip-gold { color: var(--gold); border-color: rgba(255, 210, 87, 0.7); background: rgba(255, 210, 87, 0.1); }
+.chip-silver { color: var(--silver); border-color: rgba(207, 217, 230, 0.55); background: rgba(207, 217, 230, 0.08); }
+.chip-bronze { color: var(--bronze); border-color: rgba(237, 161, 95, 0.6); background: rgba(237, 161, 95, 0.08); }
+
+.grade-text-platinum { color: var(--platinum); }
+.grade-text-gold { color: var(--gold); }
+.grade-text-silver { color: var(--silver); }
+.grade-text-bronze { color: var(--bronze); }
+
+.kind-tag, .hidden-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 1px 8px;
+  white-space: nowrap;
+}
+.missable-tag {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(92deg, var(--pink), var(--orange));
+  border-radius: 999px;
+  padding: 2px 9px;
+  white-space: nowrap;
+  box-shadow: 0 0 12px rgba(255, 46, 136, 0.5);
+}
+
+/* Progress bars */
+.bar {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(154, 166, 216, 0.16);
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--sunset);
+  transition: width 0.35s ease;
+}
+.bar-hero { height: 12px; box-shadow: 0 0 18px rgba(255, 46, 136, 0.25); }
+
+/* Warnings */
+.warning {
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin: 12px 0;
+  font-size: 14px;
+}
+.warning p { margin: 4px 0 0; }
+.warning-hard {
+  border: 1px solid rgba(255, 46, 136, 0.75);
+  background: linear-gradient(180deg, rgba(255, 46, 136, 0.16), rgba(255, 46, 136, 0.06));
+  box-shadow: 0 0 16px rgba(255, 46, 136, 0.22);
+}
+.warning-soft {
+  border: 1px solid rgba(255, 154, 61, 0.6);
+  background: rgba(255, 154, 61, 0.08);
+}
+
+.masked-text { filter: blur(0); color: var(--faint); font-style: italic; }

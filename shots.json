@@ -1,5 +1,1 @@
-[
-  { "file": "1-checklist.jpg", "path": "/", "viewport": { "width": 1280, "height": 800 } },
-  { "file": "2-silver.jpg", "path": "/", "grade": "silver", "viewport": { "width": 1280, "height": 800 } },
-  { "file": "3-bronze.jpg", "path": "/", "grade": "bronze", "scroll": 1400, "viewport": { "width": 1280, "height": 800 } }
-]
+[{"file":"1-checklist.jpg","path":"/?shot=checklist&seed=demo","view":"checklist with the guide pane open on the missable trophy, spoiler protection on, demo progress seeded","viewport":{"height":800,"width":1280}},{"file":"2-roadmap.jpg","path":"/?shot=roadmap&seed=demo","view":"platinum roadmap: cited facts box and the four stages with live progress","viewport":{"height":800,"width":1280}},{"file":"3-missables.jpg","path":"/?shot=missables&seed=demo","view":"missables page: the Chapter 1 warning, the permanent-choice caution, save discipline","viewport":{"height":800,"width":1280}},{"file":"4-planner.jpg","path":"/?shot=nextup&seed=demo","view":"next up planner with reasons and counters, plus per-grade and per-kind progress","viewport":{"height":800,"width":1280}}]
