@@ -1,142 +1,118 @@
-// Loads the trophy database and holds the guide's editorial content:
-// the kind and grade vocabularies, the four roadmap stages, the cited
-// roadmap facts and the save-discipline checklist. The trophy records
-// themselves live in app/data/trophies.json and are fetched from the
-// app's own files — nothing is ever requested from the network.
+// data.js — loads the trophy catalogue (the only file the app fetches, and it is
+// a relative path inside app/) and holds the roadmap's cited facts.
 
-export const GRADES = ["platinum", "gold", "silver", "bronze"];
-
-export const GRADE_LABELS = {
-  platinum: "Platinum",
-  gold: "Gold",
-  silver: "Silver",
-  bronze: "Bronze",
+export const KIND_LABELS = {
+  story: 'Story',
+  collectibles: 'Collectibles',
+  activities: 'Activities',
+  crime: 'Crime',
+  world: 'World',
+  partner: 'Partner',
+  platinum: 'Platinum',
 };
 
-export const KINDS = [
-  { id: "story", label: "Story" },
-  { id: "collectibles", label: "Collectibles" },
-  { id: "activities", label: "Activities" },
-  { id: "crime", label: "Crime & money" },
-  { id: "world", label: "World & one-offs" },
-  { id: "partner", label: "Partner" },
-  { id: "platinum", label: "Platinum" },
-];
+export const KIND_ORDER = ['story', 'collectibles', 'activities', 'crime', 'world', 'partner', 'platinum'];
 
-export const KIND_LABELS = Object.fromEntries(KINDS.map((k) => [k.id, k.label]));
+export const GRADE_ORDER = ['platinum', 'gold', 'silver', 'bronze'];
 
-export const ROADMAP_STAGES = [
+export const STAGES = [
   {
-    stage: 1,
-    title: "Story first",
-    blurb:
-      "Play the campaign before anything else. Every story trophy is hidden and " +
-      "unmissable, the chapters unlock the rest of the list, and one collectible " +
-      "spot — a meditation spot on Lucia's balcony — exists only during Chapter 1. " +
-      "Story first is not a preference here; it is the only safe order.",
-    tips: [
-      "Meditate at the Chapter 1 balcony spot before you finish Chapter 1",
-      "Keep a manual save at the start of every chapter, and one before the final mission",
-      "Do not touch cheats: they disable trophies and saving",
-    ],
+    n: 1,
+    name: 'The Chapter Run',
+    tagline: 'Story first — and the one missable before Chapter 1 ends',
+    detail:
+      'Play the campaign in order: the chapter and mission trophies, the stranger-strand finales and Bret\u2019s hunt. ' +
+      'Positive Mental Attitude belongs to this stage even though it is a collectible, because its Lucia\u2019s-balcony ' +
+      'meditation spot exists only during Chapter 1. Keep a manual save at the start of every chapter and one before ' +
+      'the final mission — the game has no mission replay.',
   },
   {
-    stage: 2,
-    title: "Partners and the open world",
-    blurb:
-      "With both Jason and Lucia playable from Chapter 2, the partner trophies, the " +
-      "stranger strands' final missions and the one-off world moments all open up. " +
-      "Work these between story sessions: they are short, varied, and several feed " +
-      "the 100% checklist directly.",
-    tips: [
-      "Do partner trophies while the two characters are together in free roam",
-      "Finish stranger strands as their markers appear — they chain over time",
-      "Buy garages and register vehicles as income allows; both are slow burns",
-    ],
+    n: 2,
+    name: 'Two of Us & One-Off Moments',
+    tagline: 'Partner plays and the world\u2019s single-scene trophies',
+    detail:
+      'With both Jason and Lucia playable from Chapter 2, clear the partner trophies and the one-off world moments: ' +
+      'the Ocean Beach cocktail, the showroom smash, the bowling alley, the airport departure. The two money counters ' +
+      'that live in the world — spending in shops and the Criminal Profile choices — tick along here too.',
   },
   {
-    stage: 3,
-    title: "Collections and the activity grind",
-    blurb:
-      "The counters live here: 250 stunts, 42 shooting-range golds, 100 WAiNK spots, " +
-      "100 vehicles, cards, challenges and the robbery tallies. None of it is hard, " +
-      "all of it is volume — the winning move is to start early and let ordinary " +
-      "travel do the work, then sweep what is left region by region.",
-    tips: [
-      "Check the counters weekly; the nearest ones finish fastest",
-      "Route collectibles into exploration so the miles count twice",
-      "Launder every batch of Marked Bills from your first robbery onward",
-    ],
+    n: 3,
+    name: 'The Long Grinds',
+    tagline: 'Counters, collectibles and crimes, done steadily',
+    detail:
+      'The grind stage: 250 stunts, 42 shooting-range golds, 100 WAiNK locations, 100 vehicles, card sets, bank ' +
+      'vaults and the laundering total. None of these is missable and all of them reward steady progress over ' +
+      'single-session grinding — log the counters after every session.',
   },
   {
-    stage: 4,
-    title: "100% completion and the Platinum",
-    blurb:
-      "The endgame is a checklist, not a boss fight. A Long Road wants the game's " +
-      "own 100% checklist complete; current guides report nothing on it is " +
-      "missable, so what remains is simply everything you have not done yet. When " +
-      "the last of the 54 lands, Vice Got a Price! follows on its own.",
-    tips: [
-      "Work the in-game 100% checklist one category at a time",
-      "Your pre-finale manual save is the safety net if anything looks off",
-      "The Platinum needs no action of its own — it pops at 54 of 54",
-    ],
+    n: 4,
+    name: '100% & The Platinum',
+    tagline: 'A Long Road, then Vice Got a Price! lights itself',
+    detail:
+      'Finish the 100% completion checklist for A Long Road. The Platinum, Vice Got a Price!, has no task of its ' +
+      'own: it unlocks automatically the moment the other 54 are earned, and this tracker lights it for you.',
   },
 ];
 
+// Facts the roadmap states, each with the source it comes from. Nothing here is
+// asserted without a citation.
 export const ROADMAP_FACTS = [
   {
-    label: "Story length",
-    value: "About 60 hours for the campaign, per launch reviews.",
-    source: "PlanetGTA6, citing VGC and Push Square reviews",
+    text: 'The story alone runs about 60 hours, and the full Platinum is estimated at roughly 200 hours.',
+    source: 'Reviews via PlanetGTA6; PowerPyx estimate via GTA-Zone',
   },
   {
-    label: "Platinum time",
-    value: "About 200 hours all-in — long, not hard.",
-    source: "Output Lag and PowerPyx, via GTA-Zone",
+    text: 'Platinum difficulty is rated 4 out of 10 — a long list, not a hard one.',
+    source: 'PowerPyx, via GTA-Zone',
   },
   {
-    label: "Difficulty",
-    value: "4 out of 10. No difficulty trophies and no mission medals.",
-    source: "PowerPyx, via GTA-Zone",
+    text: 'No online trophies, no difficulty trophies and no mission medals anywhere in the 55.',
+    source: 'Output Lag; GTA-Zone',
   },
   {
-    label: "Online trophies",
-    value: "None. All 55 unlock in single player; the Xbox list is identical at 1,000 Gamerscore.",
-    source: "GTA-Zone and Output Lag",
+    text: 'Exactly one trophy is flagged potentially missable: Positive Mental Attitude (a Chapter 1 meditation spot). Nothing on the 100% checklist is missable.',
+    source: 'PowerPyx via GTA-Zone; Output Lag',
   },
   {
-    label: "Missables",
-    value: "One trophy is flagged potentially missable: Positive Mental Attitude (a Chapter 1 meditation spot).",
-    source: "PowerPyx via GTA-Zone; Output Lag",
+    text: 'Several trophies need Jason and Lucia together; most of the list opens once both are playable in Chapter 2.',
+    source: 'Output Lag',
   },
   {
-    label: "Cheats",
-    value: "Cheats disable trophies and saving, and every cheat only unlocks after the story ends — keep them out of a Platinum run.",
-    source: "PowerPyx, GameSpot and PC Gamer, via PlanetGTA6",
+    text: 'Cheats disable trophies and saving, and every cheat only unlocks after the story — keep them off a Platinum run.',
+    source: 'PowerPyx, GameSpot and PC Gamer, via PlanetGTA6',
   },
   {
-    label: "Two protagonists",
-    value: "Several trophies need Jason and Lucia together; most of the list opens once both are playable in Chapter 2.",
-    source: "Output Lag",
+    text: 'The Xbox list is identical: the same 55 achievements, worth 1,000 Gamerscore.',
+    source: 'PlanetGTA6; GTA-Zone',
+  },
+  {
+    text: '55 trophies in all: 1 platinum, 2 gold, 6 silver, 46 bronze — 28 of them hidden on PlayStation until earned.',
+    source: 'Exophase; PSNProfiles',
   },
 ];
 
-export const SAVE_CHECKLIST = [
-  "Keep a manual save at the start of every chapter — the game has no mission replay.",
-  "Meditate at Lucia's Chapter 1 balcony spot before you finish Chapter 1.",
-  "Save manually once more before starting the final mission.",
-  "Never enable a cheat on this save: cheats switch trophies and saving off.",
-  "Export this tracker regularly — your progress file is your backup of the plan.",
+export const SAVE_HABITS = [
+  'Make a manual save at the start of every chapter.',
+  'Meditate on Lucia\u2019s balcony during Chapter 1, before the chapter ends.',
+  'Make a manual save before the final mission.',
+  'Never rely on autosave alone — there is no mission replay.',
+  'Keep cheats off: they disable trophies and saving.',
 ];
 
-export async function loadTrophies() {
-  const response = await fetch("data/trophies.json");
-  if (!response.ok) throw new Error(`trophies.json: HTTP ${response.status}`);
-  const doc = await response.json();
-  const trophies = Array.isArray(doc) ? doc : doc.trophies;
-  if (!Array.isArray(trophies) || trophies.length === 0) {
-    throw new Error("trophies.json holds no trophy list");
-  }
-  return trophies;
+let catalogue = null;
+
+export async function loadCatalogue() {
+  if (catalogue) return catalogue;
+  const response = await fetch('data/trophies.json');
+  if (!response.ok) throw new Error('Could not load data/trophies.json (' + response.status + ')');
+  catalogue = await response.json();
+  return catalogue;
+}
+
+export function trophiesOf(data) {
+  return data.trophies;
+}
+
+export function trophyById(data, id) {
+  return data.trophies.find((t) => t.id === id) || null;
 }

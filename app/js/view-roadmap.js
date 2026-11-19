@@ -1,97 +1,82 @@
-// The Platinum roadmap: four stages, each with its reasoning, its
-// working tips, its live progress roll-up from the tracker, and its
-// trophies as chips that jump to the checklist. The plan comes first;
-// below the stages, the roadmap facts box — time, difficulty, cheats,
-// online — each with the source it comes from. The roadmap is built
-// from the official trophy descriptions, and it says what it is
-// built from.
+// view-roadmap.js — the road to the Platinum: the cited facts box, the
+// Chapter 1 save warning, and the four stages with live roll-ups and their
+// trophies (spoiler-safe).
 
-import { h, progressBar } from "./dom.js";
-import { ROADMAP_FACTS, ROADMAP_STAGES } from "./data.js";
-import { stageProgress } from "./stats.js";
-import { isMasked } from "./filters.js";
-import { isEarned } from "./store.js";
+import { ROADMAP_FACTS } from './data.js';
+import { append, clear, el, percent, progressBar } from './dom.js';
+import { displayName } from './filters.js';
+import { isEarned } from './store.js';
+import { gradeChip } from './view-checklist.js';
 
-export function createRoadmap(container, ctx) {
-  const { trophies, state } = ctx;
-  for (const stage of ROADMAP_STAGES) {
-    const progress = stageProgress(trophies, state, stage.stage);
-    const card = h(
-      "section",
-      { class: "panel stage-card" },
-      h(
-        "div",
-        { class: "stage-head" },
-        h("span", { class: "stage-number" }, `Stage ${stage.stage}`),
-        h("h2", {}, stage.title),
-        h("span", { class: "stage-count" }, `${progress.earned} / ${progress.total} earned`),
-      ),
-      progressBar(progress.earned, progress.total),
-      h("p", { class: "stage-blurb" }, stage.blurb),
-    );
-    if (stage.stage === 1) {
-      card.append(
-        h(
-          "div",
-          { class: "warning warning-hard" },
-          h("strong", {}, "Before anything else: the Chapter 1 warning"),
-          h(
-            "p",
-            {},
-            "One meditation spot for Positive Mental Attitude sits on Lucia's balcony " +
-              "during Chapter 1 and disappears when the chapter ends — and there is no " +
-              "mission replay. Meditate there during Chapter 1, and keep a manual save " +
-              "at the start of every chapter and one before the final mission.",
-          ),
-        ),
-      );
-    }
-    card.append(
-      h(
-        "ul",
-        { class: "tips" },
-        stage.tips.map((tip) => h("li", {}, tip)),
-      ),
-      h(
-        "div",
-        { class: "stage-trophies" },
-        progress.trophies.map((trophy) => {
-          const masked = isMasked(trophy, state, trophies);
-          const earned = isEarned(trophy, state, trophies);
-          return h(
-            "button",
-            {
-              type: "button",
-              class: `trophy-chip grade-${trophy.grade} ${earned ? "trophy-chip-earned" : ""}`,
-              onclick: () => ctx.gotoTrophy(trophy.id),
-            },
-            `${earned ? "✓ " : ""}${masked ? "Hidden trophy" : trophy.name}${trophy.missable ? " · missable" : ""}`,
-          );
-        }),
-      ),
-    );
-    container.append(card);
-  }
-
-  container.append(
-    h(
-      "section",
-      { class: "panel facts-panel" },
-      h("h2", {}, "The facts behind this roadmap"),
-      h(
-        "div",
-        { class: "facts-grid" },
-        ROADMAP_FACTS.map((fact) =>
-          h(
-            "div",
-            { class: "fact" },
-            h("p", { class: "fact-label" }, fact.label),
-            h("p", { class: "fact-value" }, fact.value),
-            h("p", { class: "fact-source" }, `Source: ${fact.source}`),
-          ),
-        ),
-      ),
+export function renderRoadmap(root, ctx) {
+  clear(root);
+  root.append(el('h2', 'view-title', 'Roadmap to the Platinum'));
+  root.append(
+    el(
+      'p',
+      'view-intro',
+      'Four stages, in the order the game wants them played. The roadmap and its missable flags are built from ' +
+        'the official trophy descriptions; every wider fact below names its source.',
     ),
   );
-  return { refresh: () => {} };
+
+  const facts = el('section', 'facts-box');
+  facts.append(el('h3', null, 'The facts, with their sources'));
+  const factList = el('ul', 'facts-list');
+  for (const fact of ROADMAP_FACTS) {
+    const item = el('li');
+    append(item, el('span', 'fact-text', fact.text), el('span', 'fact-source', ' — ' + fact.source));
+    factList.append(item);
+  }
+  facts.append(factList);
+  root.append(facts);
+
+  const warning = el('section', 'roadmap-warning');
+  append(
+    warning,
+    el('strong', null, '⚠ The Chapter 1 warning'),
+    el(
+      'p',
+      null,
+      'Positive Mental Attitude is the one potentially missable trophy: a meditation spot on Lucia\u2019s balcony ' +
+        'exists only during Chapter 1 and is gone when the chapter ends, and there is no mission replay ' +
+        '(PowerPyx via GTA-Zone; Output Lag). Meditate there during Chapter 1, keep a manual save at the start ' +
+        'of every chapter, and one more before the final mission.',
+    ),
+  );
+  root.append(warning);
+
+  for (const stageStats of ctx.stats.byStage) {
+    const stage = stageStats.stage;
+    const box = el('section', 'stage-box');
+    const head = el('div', 'stage-head');
+    append(
+      head,
+      el('span', 'stage-num', 'Stage ' + stage.n),
+      el('h3', 'stage-name', stage.name),
+      el('span', 'stage-count', stageStats.earned + ' / ' + stageStats.total + ' · ' + percent(stageStats.earned, stageStats.total) + '%'),
+    );
+    box.append(head);
+    box.append(el('p', 'stage-tagline', stage.tagline));
+    box.append(progressBar(stageStats.earned, stageStats.total));
+    box.append(el('p', 'stage-detail', stage.detail));
+
+    const list = el('div', 'stage-list');
+    for (const trophy of ctx.trophies.filter((t) => t.stage === stage.n)) {
+      const earned = isEarned(ctx.state, ctx.trophies, trophy);
+      const row = el('button', 'stage-row' + (earned ? ' is-earned' : ''));
+      row.type = 'button';
+      append(
+        row,
+        el('span', 'stage-row-check', earned ? '✓' : '·'),
+        el('span', 'stage-row-name', displayName(ctx.state, ctx.trophies, trophy)),
+        gradeChip(trophy),
+      );
+      if (trophy.missable) row.append(el('span', 'chip chip-missable', 'missable'));
+      row.addEventListener('click', () => ctx.goToTrophy(trophy.id));
+      list.append(row);
+    }
+    box.append(list);
+    root.append(box);
+  }
 }

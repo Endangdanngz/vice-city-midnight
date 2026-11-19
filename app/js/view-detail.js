@@ -1,174 +1,146 @@
-// The guide pane: one trophy in full — official name and description,
-// grade and kind, the earned toggle, the PSN counter, the original
-// guide with its steps, the missable warning where one applies, the
-// player's own note, and the sources the guide is built from. A masked
-// (spoiler-hidden) trophy shows none of it until it is earned.
+// view-detail.js — the guide pane: one trophy in full. Official name,
+// description and grade, the guide in this app's own words, its steps, the
+// missable banner, its PSN counter, a personal note, and the sources every
+// fact came from.
 
-import { h, gradeChip, progressBar, clear } from "./dom.js";
-import { KIND_LABELS } from "./data.js";
-import { PLATINUM_ID, counterOf, isEarned } from "./store.js";
-import { displayDescription, displayName, isMasked } from "./filters.js";
-import { formatCount } from "./recommend.js";
-
-export function counterControls(trophy, state, onCounter) {
-  const now = counterOf(trophy, state);
-  const step = trophy.unit === "$" ? 500 : 1;
-  const input = h("input", {
-    class: "counter-input",
-    type: "number",
-    min: 0,
-    max: trophy.target,
-    step,
-    value: now,
-    "aria-label": `Progress count for ${trophy.name}`,
-    onchange: (event) => onCounter(Number(event.target.value)),
-  });
-  return h(
-    "div",
-    { class: "counter" },
-    h("button", { type: "button", class: "counter-btn", "aria-label": "Decrease", onclick: () => onCounter(now - step) }, "−"),
-    input,
-    h("button", { type: "button", class: "counter-btn", "aria-label": "Increase", onclick: () => onCounter(now + step) }, "+"),
-    h("span", { class: "counter-of" }, `of ${formatCount(trophy, trophy.target)}`),
-  );
-}
+import { KIND_LABELS } from './data.js';
+import { append, clear, el, formatCount, progressBar } from './dom.js';
+import { displayDescription, displayName, isMasked } from './filters.js';
+import { counterOf, isEarned } from './store.js';
+import { gradeChip } from './view-checklist.js';
 
 export function renderDetail(root, ctx) {
   clear(root);
-  const { trophies, state, actions } = ctx;
-  const trophy = trophies.find((t) => t.id === ctx.selectedId) ?? trophies[0];
-  if (!trophy) return;
+  const trophy = ctx.trophies.find((t) => t.id === ctx.selectedId) || ctx.trophies[0];
+  if (!trophy) {
+    root.append(el('p', 'detail-empty', 'Pick a trophy to read its guide.'));
+    return;
+  }
+  const masked = isMasked(ctx.state, ctx.trophies, trophy);
+  const earned = isEarned(ctx.state, ctx.trophies, trophy);
 
-  if (isMasked(trophy, state, trophies)) {
+  const head = el('div', 'detail-head');
+  append(head, el('h2', 'detail-name', displayName(ctx.state, ctx.trophies, trophy)));
+  const chips = el('div', 'detail-chips');
+  append(
+    chips,
+    gradeChip(trophy),
+    el('span', 'chip chip-kind', KIND_LABELS[trophy.kind]),
+    el('span', 'chip chip-stage', 'Roadmap stage ' + trophy.stage),
+  );
+  if (trophy.hidden) chips.append(el('span', 'chip chip-hidden', 'hidden on PSN'));
+  if (earned) chips.append(el('span', 'chip chip-earned', 'earned'));
+  head.append(chips);
+  root.append(head);
+
+  root.append(el('p', 'detail-desc', displayDescription(ctx.state, ctx.trophies, trophy)));
+
+  if (masked) {
     root.append(
-      h(
-        "div",
-        { class: "detail masked-detail" },
-        h("p", { class: "detail-kicker" }, "Spoiler protection is on"),
-        h("h2", {}, "Hidden trophy"),
-        h(
-          "p",
-          { class: "detail-desc" },
-          "This trophy is hidden on PlayStation until it is earned. Its name, " +
-            "description and guide stay covered while spoiler protection is on — " +
-            "earn it in game, tick it here, and the guide opens.",
-        ),
-        h("p", { class: "detail-meta" }, `${KIND_LABELS[trophy.kind]} · roadmap stage ${trophy.stage}`),
+      el(
+        'p',
+        'detail-spoiler-note',
+        'Spoiler protection is on and this trophy is still unearned, so its guide stays covered too. ' +
+          'Earn it, or switch spoiler protection off in the toolbar, to read the full guide.',
       ),
     );
     return;
   }
 
-  const earned = isEarned(trophy, state, trophies);
-  const isPlatinum = trophy.id === PLATINUM_ID;
-  const detail = h("div", { class: "detail" });
-
-  detail.append(
-    h(
-      "div",
-      { class: "detail-head" },
-      gradeChip(trophy.grade),
-      h("span", { class: "kind-tag" }, KIND_LABELS[trophy.kind]),
-      trophy.hidden ? h("span", { class: "hidden-tag" }, "hidden on PSN") : null,
-      trophy.missable ? h("span", { class: "missable-tag" }, "missable") : null,
-    ),
-    h("h2", { class: "detail-name" }, displayName(trophy, state, trophies)),
-    h("p", { class: "detail-desc" }, displayDescription(trophy, state, trophies)),
-  );
-
   if (trophy.missable || trophy.missableNote) {
-    detail.append(
-      h(
-        "div",
-        { class: `warning ${trophy.missable ? "warning-hard" : "warning-soft"}` },
-        h("strong", {}, trophy.missable ? "Missable — read before you play on" : "Permanent choice — read first"),
-        h("p", {}, trophy.missableNote ?? ""),
-      ),
+    const banner = el('div', 'missable-banner');
+    append(
+      banner,
+      el('strong', null, trophy.missable ? '⚠ Potentially missable' : '⚠ Permanent-choice caution'),
+      el('p', null, trophy.missableNote || ''),
     );
+    root.append(banner);
   }
 
-  const toggle = h("input", {
-    type: "checkbox",
-    checked: earned,
-    disabled: isPlatinum,
-    onchange: (event) => actions.toggleEarned(trophy, event.target.checked),
-  });
-  detail.append(
-    h(
-      "label",
-      { class: "earned-toggle" },
-      toggle,
-      h(
-        "span",
-        {},
-        isPlatinum
-          ? earned
-            ? "Platinum earned — all 54 others are in"
-            : "Platinum is automatic at 54 of 54 others"
-          : earned
-            ? "Earned"
-            : "Mark as earned",
-      ),
-    ),
-  );
+  const guideBox = el('div', 'detail-guide');
+  guideBox.append(el('h3', null, 'Guide'));
+  guideBox.append(el('p', null, trophy.guide));
+  root.append(guideBox);
+
+  if (Array.isArray(trophy.steps) && trophy.steps.length) {
+    const stepsBox = el('div', 'detail-steps');
+    stepsBox.append(el('h3', null, 'Steps'));
+    const list = el('ol', 'steps-list');
+    for (const step of trophy.steps) list.append(el('li', null, step));
+    stepsBox.append(list);
+    root.append(stepsBox);
+  }
 
   if (trophy.target) {
-    detail.append(
-      h(
-        "div",
-        { class: "detail-counter" },
-        h("p", { class: "counter-label" }, `PSN progress — ${trophy.name}`),
-        counterControls(trophy, state, (value) => actions.setCounter(trophy, value)),
-        progressBar(counterOf(trophy, state), trophy.target),
-      ),
+    const box = el('div', 'detail-counter');
+    box.append(el('h3', null, 'Progress counter'));
+    const value = counterOf(ctx.state, trophy);
+    const controls = el('div', 'counter-controls');
+    const minus = el('button', 'counter-btn', '−');
+    minus.type = 'button';
+    minus.addEventListener('click', () => ctx.setCounter(trophy, value - 1));
+    const input = el('input', 'counter-input');
+    input.type = 'number';
+    input.min = '0';
+    input.value = String(value);
+    input.setAttribute('aria-label', 'Counter for ' + trophy.name);
+    input.addEventListener('change', () => ctx.setCounter(trophy, input.value));
+    const plus = el('button', 'counter-btn', '+');
+    plus.type = 'button';
+    plus.addEventListener('click', () => ctx.setCounter(trophy, value + 1));
+    append(
+      controls,
+      minus,
+      input,
+      plus,
+      el('span', 'counter-readout', formatCount(value, trophy.unit) + ' / ' + formatCount(trophy.target, trophy.unit) + ' ' + (trophy.unit === 'money' ? 'dollars' : trophy.unit)),
     );
+    box.append(controls);
+    box.append(progressBar(Math.min(value, trophy.target), trophy.target));
+    box.append(el('p', 'counter-hint', 'Reaching the target marks the trophy earned; dropping below it again revokes it.'));
+    root.append(box);
   }
 
-  detail.append(h("h3", { class: "detail-h" }, "Guide"));
-  detail.append(h("p", { class: "guide-text" }, trophy.guide));
-  if (Array.isArray(trophy.steps) && trophy.steps.length > 0) {
-    detail.append(
-      h(
-        "ol",
-        { class: "steps" },
-        trophy.steps.map((step) => h("li", {}, step)),
+  const noteBox = el('div', 'detail-note');
+  noteBox.append(el('h3', null, 'Your note'));
+  const area = el('textarea', 'note-area');
+  area.rows = 3;
+  area.placeholder = 'Your own note for this trophy — saved in this browser.';
+  area.value = ctx.state.notes[trophy.id] || '';
+  area.setAttribute('aria-label', 'Note for ' + trophy.name);
+  area.addEventListener('input', () => ctx.setNote(trophy, area.value));
+  noteBox.append(area);
+  root.append(noteBox);
+
+  if (Array.isArray(trophy.sources) && trophy.sources.length) {
+    const srcBox = el('div', 'detail-sources');
+    srcBox.append(el('h3', null, 'Sources'));
+    const list = el('ul', 'sources-list');
+    for (const source of trophy.sources) {
+      const item = el('li');
+      if (typeof source === 'string') {
+        item.textContent = source;
+      } else if (source.url) {
+        const link = el('a', null, source.label);
+        link.href = source.url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        item.append(link);
+      } else {
+        item.textContent = source.label;
+      }
+      list.append(item);
+    }
+    srcBox.append(list);
+    srcBox.append(
+      el(
+        'p',
+        'sources-note',
+        'Official names, descriptions and grades are PlayStation\u2019s, via Exophase and PSNProfiles. ' +
+          'The guide above is written for this app; its facts cite the sources listed, and where no source ' +
+          'pins a step down, the guide says so.',
       ),
     );
+    root.append(srcBox);
   }
-
-  const note = h("textarea", {
-    class: "note",
-    rows: 3,
-    placeholder: "Your own note — a route, a reminder, a count…",
-    "aria-label": `Your note for ${trophy.name}`,
-    onchange: (event) => actions.setNote(trophy, event.target.value),
-  });
-  note.value = state.notes[trophy.id] ?? "";
-  detail.append(h("h3", { class: "detail-h" }, "Your note"), note);
-
-  detail.append(h("h3", { class: "detail-h" }, "Sources"));
-  detail.append(
-    h(
-      "ul",
-      { class: "sources" },
-      (trophy.sources ?? []).map((source) =>
-        h(
-          "li",
-          {},
-          source.url
-            ? h("a", { href: source.url, target: "_blank", rel: "noreferrer" }, source.name)
-            : h("span", {}, source.name),
-        ),
-      ),
-    ),
-    h(
-      "p",
-      { class: "sources-note" },
-      "Names, descriptions and grades are the official PlayStation text. Every guide " +
-        "here is written for this app in its own words; the sources above are what it " +
-        "is built from, and where no source pins a step down, the guide says so.",
-    ),
-  );
-
-  root.append(detail);
 }

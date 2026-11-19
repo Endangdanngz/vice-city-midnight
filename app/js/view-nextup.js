@@ -1,116 +1,59 @@
-// The Next Up planner view: the recommended trophies to chase next,
-// each with its reason, its live counter where PSN counts one, and a
-// jump to its guide — plus the full progress picture (per-grade and
-// per-kind) so the plan sits next to the numbers it is planned from.
+// view-nextup.js — the Next Up planner: what to play next, in order, each pick
+// with its reason, its counter progress and its grade. Spoiler-safe by
+// construction (recommend.js masks hidden names).
 
-import { h, gradeChip, progressBar } from "./dom.js";
-import { GRADES, GRADE_LABELS, KINDS } from "./data.js";
-import { counterOf } from "./store.js";
-import { computeStats } from "./stats.js";
-import { formatCount, nextUp } from "./recommend.js";
+import { append, clear, el, formatCount, progressBar } from './dom.js';
+import { nextUp } from './recommend.js';
+import { counterOf } from './store.js';
+import { gradeChip } from './view-checklist.js';
 
-export function createNextUp(container, ctx) {
-  const { trophies, state } = ctx;
-  const stats = computeStats(trophies, state);
-  const picks = nextUp(trophies, state, 8);
-
-  container.append(
-    h(
-      "section",
-      { class: "panel" },
-      h("h2", {}, "Chase these next"),
-      h(
-        "p",
-        { class: "guide-text" },
-        "Ordered by what protects the run first — the missable trophy, then the " +
-          "roadmap's order, with counters that are already moving ahead of fresh " +
-          "starts. Spoiler-hidden trophies are never named here while spoiler " +
-          "protection is on.",
-      ),
-      picks.length === 0
-        ? h("p", { class: "empty" }, "Nothing left to recommend — the list is done. Enjoy Leonida.")
-        : h(
-            "ol",
-            { class: "nextup-list" },
-            picks.map(({ trophy, reason }) =>
-              h(
-                "li",
-                { class: "nextup-item" },
-                h(
-                  "div",
-                  { class: "nextup-main" },
-                  h(
-                    "div",
-                    { class: "row-title" },
-                    h("span", { class: "row-name" }, trophy.name),
-                    gradeChip(trophy.grade),
-                    trophy.missable ? h("span", { class: "missable-tag" }, "missable") : null,
-                  ),
-                  h("p", { class: "nextup-reason" }, reason),
-                  trophy.target
-                    ? progressBar(counterOf(trophy, state), trophy.target)
-                    : null,
-                  trophy.target
-                    ? h(
-                        "p",
-                        { class: "row-counter-label" },
-                        `${formatCount(trophy, counterOf(trophy, state))} / ${formatCount(trophy, trophy.target)}`,
-                      )
-                    : null,
-                ),
-                h(
-                  "button",
-                  { type: "button", class: "go-btn", onclick: () => ctx.gotoTrophy(trophy.id) },
-                  "Open guide",
-                ),
-              ),
-            ),
-          ),
-    ),
-    h(
-      "section",
-      { class: "panel" },
-      h("h2", {}, "The whole picture"),
-      h(
-        "p",
-        { class: "platinum-line" },
-        stats.platinumReady
-          ? "Platinum ready — all 54 other trophies are earned, so Vice Got a Price! is yours."
-          : `${stats.othersEarned} of ${stats.othersTotal} trophies stand between you and the Platinum.`,
-      ),
-      h(
-        "div",
-        { class: "stats-grid" },
-        h(
-          "div",
-          {},
-          h("h3", { class: "detail-h" }, "By grade"),
-          GRADES.map((grade) =>
-            h(
-              "div",
-              { class: "stat-row" },
-              h("span", { class: "stat-label" }, GRADE_LABELS[grade]),
-              progressBar(stats.perGrade[grade].earned, stats.perGrade[grade].total),
-              h("span", { class: "stat-num" }, `${stats.perGrade[grade].earned}/${stats.perGrade[grade].total}`),
-            ),
-          ),
-        ),
-        h(
-          "div",
-          {},
-          h("h3", { class: "detail-h" }, "By kind"),
-          KINDS.map((kind) =>
-            h(
-              "div",
-              { class: "stat-row" },
-              h("span", { class: "stat-label" }, kind.label),
-              progressBar(stats.perKind[kind.id].earned, stats.perKind[kind.id].total),
-              h("span", { class: "stat-num" }, `${stats.perKind[kind.id].earned}/${stats.perKind[kind.id].total}`),
-            ),
-          ),
-        ),
-      ),
+export function renderNextUp(root, ctx) {
+  clear(root);
+  root.append(el('h2', 'view-title', 'Next up'));
+  root.append(
+    el(
+      'p',
+      'view-intro',
+      'Your next twelve trophies, in the order this planner would play them: the missable first, then the ' +
+        'roadmap\u2019s stages, and inside a stage the counter closest to finishing. Every pick says why it is ' +
+        'there. Hidden trophies stay covered while spoiler protection is on.',
     ),
   );
-  return { refresh: () => {} };
+
+  const picks = nextUp(ctx.state, ctx.trophies, 12);
+  if (picks.length === 0) {
+    root.append(el('p', 'nextup-done', 'Nothing left. 55 of 55 — Vice City is yours.'));
+    return;
+  }
+  const list = el('ol', 'nextup-list');
+  picks.forEach((pick, index) => {
+    const trophy = pick.trophy;
+    const row = el('li', 'nextup-row');
+    const head = el('div', 'nextup-head');
+    append(
+      head,
+      el('span', 'nextup-rank', String(index + 1)),
+      el('span', 'nextup-name', pick.name),
+      gradeChip(trophy),
+    );
+    if (trophy.missable) head.append(el('span', 'chip chip-missable', 'missable'));
+    row.append(head);
+    row.append(el('p', 'nextup-reason', pick.reason));
+    if (trophy.target && !pick.masked) {
+      const value = counterOf(ctx.state, trophy);
+      const meta = el('div', 'nextup-counter');
+      append(
+        meta,
+        el('span', 'counter-readout', formatCount(value, trophy.unit) + ' / ' + formatCount(trophy.target, trophy.unit) + ' ' + (trophy.unit === 'money' ? 'dollars' : trophy.unit)),
+      );
+      meta.append(progressBar(Math.min(value, trophy.target), trophy.target, 'bar-mini'));
+      row.append(meta);
+    }
+    const open = el('button', 'btn btn-small', 'Open guide');
+    open.type = 'button';
+    open.addEventListener('click', () => ctx.goToTrophy(trophy.id));
+    row.append(open);
+    list.append(row);
+  });
+  root.append(list);
 }

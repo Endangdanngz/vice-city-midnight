@@ -1,53 +1,66 @@
-// Dashboard mathematics: totals, per-grade and per-kind progress, and
-// the Platinum readiness calculation. Pure functions of the trophy list
-// and the tracker state — the header, the roadmap roll-ups and the
-// planner all read from here so the numbers can never disagree.
+// stats.js — every roll-up the dashboard, roadmap and planner show: totals,
+// per-grade and per-kind progress, per-stage progress, and the Platinum line.
 
-import { GRADES, KINDS } from "./data.js";
-import { PLATINUM_ID, isEarned } from "./store.js";
+import { GRADE_ORDER, KIND_ORDER, STAGES } from './data.js';
+import { PLATINUM_ID, counterOf, isEarned } from './store.js';
 
-export function computeStats(trophies, state) {
-  const total = trophies.length;
-  const earnedIds = new Set(
-    trophies.filter((t) => isEarned(t, state, trophies)).map((t) => t.id),
-  );
-  const earned = earnedIds.size;
-  const others = trophies.filter((t) => t.id !== PLATINUM_ID);
-  const othersEarned = others.filter((t) => state.earned[t.id] === true).length;
-  const perGrade = {};
-  for (const grade of GRADES) {
+export function computeStats(state, trophies) {
+  const earnedFlags = new Map(trophies.map((t) => [t.id, isEarned(state, trophies, t)]));
+  const earnedCount = trophies.filter((t) => earnedFlags.get(t.id)).length;
+
+  const byGrade = GRADE_ORDER.map((grade) => {
     const inGrade = trophies.filter((t) => t.grade === grade);
-    perGrade[grade] = {
-      earned: inGrade.filter((t) => earnedIds.has(t.id)).length,
+    return {
+      grade,
       total: inGrade.length,
+      earned: inGrade.filter((t) => earnedFlags.get(t.id)).length,
     };
-  }
-  const perKind = {};
-  for (const kind of KINDS) {
-    const inKind = trophies.filter((t) => t.kind === kind.id);
-    perKind[kind.id] = {
-      earned: inKind.filter((t) => earnedIds.has(t.id)).length,
-      total: inKind.length,
-    };
-  }
-  return {
-    total,
-    earned,
-    remaining: total - earned,
-    percent: total === 0 ? 0 : Math.round((earned / total) * 100),
-    othersEarned,
-    othersTotal: others.length,
-    platinumReady: othersEarned === others.length,
-    perGrade,
-    perKind,
-  };
-}
+  });
 
-export function stageProgress(trophies, state, stage) {
-  const inStage = trophies.filter((t) => t.stage === stage);
+  const byKind = KIND_ORDER.map((kind) => {
+    const inKind = trophies.filter((t) => t.kind === kind);
+    return {
+      kind,
+      total: inKind.length,
+      earned: inKind.filter((t) => earnedFlags.get(t.id)).length,
+    };
+  }).filter((row) => row.total > 0);
+
+  const byStage = STAGES.map((stage) => {
+    const inStage = trophies.filter((t) => t.stage === stage.n);
+    return {
+      stage,
+      total: inStage.length,
+      earned: inStage.filter((t) => earnedFlags.get(t.id)).length,
+    };
+  });
+
+  const others = trophies.filter((t) => t.id !== PLATINUM_ID);
+  const othersEarned = others.filter((t) => earnedFlags.get(t.id)).length;
+
+  const counters = trophies
+    .filter((t) => t.target)
+    .map((t) => ({
+      trophy: t,
+      value: counterOf(state, t),
+      ratio: Math.min(1, counterOf(state, t) / t.target),
+      complete: earnedFlags.get(t.id),
+    }));
+
   return {
-    earned: inStage.filter((t) => isEarned(t, state, trophies)).length,
-    total: inStage.length,
-    trophies: inStage,
+    total: trophies.length,
+    earnedCount,
+    remaining: trophies.length - earnedCount,
+    byGrade,
+    byKind,
+    byStage,
+    earnedFlags,
+    counters,
+    platinum: {
+      earned: earnedFlags.get(PLATINUM_ID),
+      othersEarned,
+      othersTotal: others.length,
+    },
+    missablesOpen: trophies.filter((t) => t.missable && !earnedFlags.get(t.id)).length,
   };
 }

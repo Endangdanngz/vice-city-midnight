@@ -1,336 +1,304 @@
-// Vice City Midnight — boot and shell. Builds the dashboard header
-// (the big earned count, per-grade and per-kind progress, the Platinum
-// line, spoiler protection, export / import / reset), the view tabs,
-// and routes between Checklist, Roadmap, Missables and Next Up.
-// A ?shot=<view>&seed=demo mode renders one view with a fixed demo
-// state for the entry's screenshots and flags window.__shotReady.
+// main.js — Vice City Midnight's shell: loads the catalogue, owns the state,
+// routes between the four views (checklist, roadmap, missables, next up),
+// wires export / import / reset, and implements the deterministic screenshot
+// mode (?shot=<view>&seed=demo).
 
-import { h, progressBar, clear } from "./dom.js";
-import { GRADES, GRADE_LABELS, KINDS, loadTrophies } from "./data.js";
+import { loadCatalogue, trophiesOf } from './data.js';
+import { clear, el } from './dom.js';
+import { defaultFilters } from './filters.js';
 import {
-  defaultState,
   demoState,
-  exportJSON,
+  exportPayload,
   loadState,
   parseImport,
   saveState,
-} from "./store.js";
-import { defaultFilters } from "./filters.js";
-import { computeStats } from "./stats.js";
-import { createChecklist } from "./view-checklist.js";
-import { createRoadmap } from "./view-roadmap.js";
-import { createMissables } from "./view-missables.js";
-import { createNextUp } from "./view-nextup.js";
+  setCounter,
+  setEarned,
+  setNote,
+} from './store.js';
+import { computeStats } from './stats.js';
+import { renderDashboard, renderList, renderToolbar } from './view-checklist.js';
+import { renderDetail } from './view-detail.js';
+import { renderMissables } from './view-missables.js';
+import { renderNextUp } from './view-nextup.js';
+import { renderRoadmap } from './view-roadmap.js';
 
 const VIEWS = [
-  { id: "checklist", label: "Checklist & guides" },
-  { id: "roadmap", label: "Platinum roadmap" },
-  { id: "missables", label: "Missables" },
-  { id: "nextup", label: "Next up" },
+  { id: 'checklist', label: 'Tracker & guides' },
+  { id: 'roadmap', label: 'Roadmap' },
+  { id: 'missables', label: 'Missables' },
+  { id: 'nextup', label: 'Next up' },
 ];
 
-const params = new URLSearchParams(location.search);
-const demoMode = params.get("seed") === "demo";
-
-const ui = {
-  view: "checklist",
-  filters: defaultFilters(),
-  selectedId: 28,
-  status: "",
-};
-if (params.get("shot") && VIEWS.some((v) => v.id === params.get("shot"))) {
-  ui.view = params.get("shot");
-} else if (location.hash.startsWith("#/")) {
-  const fromHash = location.hash.slice(2);
-  if (VIEWS.some((v) => v.id === fromHash)) ui.view = fromHash;
-}
-const selectParam = Number(params.get("select"));
-if (Number.isInteger(selectParam) && selectParam >= 1 && selectParam <= 55) {
-  ui.selectedId = selectParam;
-}
-
-let trophies = [];
-let state = demoMode ? demoState() : loadState();
-let viewRoot = null;
-let statsRoot = null;
-let navRoot = null;
-let statusRoot = null;
+const shotParams = new URLSearchParams(location.search);
+const shotView = shotParams.get('shot');
+const inShotMode = Boolean(shotView && shotParams.get('seed') === 'demo');
 
 const ctx = {
-  get trophies() {
-    return trophies;
+  trophies: [],
+  state: inShotMode ? demoState() : loadState(),
+  filters: defaultFilters(),
+  selectedId: inShotMode ? 28 : 1,
+  view: 'checklist',
+  stats: null,
+  els: {},
+  persist() {
+    if (!inShotMode) saveState(ctx.state);
   },
-  get state() {
-    return state;
+  refreshStats() {
+    ctx.stats = computeStats(ctx.state, ctx.trophies);
   },
-  ui,
-  save() {
-    if (!demoMode) saveState(state);
+  renderAll() {
+    ctx.refreshStats();
+    renderNav();
+    renderView();
   },
-  refreshDashboard,
-  gotoTrophy(id) {
-    ui.selectedId = id;
-    showView("checklist");
+  renderList() {
+    ctx.refreshStats();
+    renderDashboard(ctx.els.dashboard, ctx.stats);
+    renderListInto();
+    renderDetail(ctx.els.detail, ctx);
   },
-  setStatus(text) {
-    ui.status = text;
-    if (statusRoot) statusRoot.textContent = text;
+  select(id) {
+    ctx.selectedId = id;
+    renderListInto();
+    renderDetail(ctx.els.detail, ctx);
+  },
+  toggleEarned(trophy, on) {
+    setEarned(ctx.state, trophy, on);
+    ctx.persist();
+    ctx.renderList();
+  },
+  setCounter(trophy, value) {
+    setCounter(ctx.state, trophy, value);
+    ctx.persist();
+    ctx.renderList();
+  },
+  setNote(trophy, text) {
+    setNote(ctx.state, trophy, text);
+    ctx.persist();
+  },
+  goToTrophy(id) {
+    ctx.selectedId = id;
+    setView('checklist');
   },
 };
 
-function replaceState(next) {
-  for (const key of Object.keys(state)) delete state[key];
-  Object.assign(state, next);
+function renderListInto() {
+  renderList(ctx.els.list, ctx);
 }
 
-function refreshDashboard() {
-  if (!statsRoot) return;
-  clear(statsRoot);
-  const stats = computeStats(trophies, state);
-  statsRoot.append(
-    h(
-      "div",
-      { class: "dash-main" },
-      h(
-        "div",
-        { class: "dash-count" },
-        h("span", { class: "dash-big" }, `${stats.earned}`),
-        h("span", { class: "dash-of" }, `/ ${stats.total} earned`),
-        h("span", { class: "dash-pct" }, `${stats.percent}%`),
-      ),
-      progressBar(stats.earned, stats.total, "bar-hero"),
-      h(
-        "p",
-        { class: "platinum-line" },
-        stats.platinumReady
-          ? "Platinum earned — Vice Got a Price! is in. Leonida is 100% yours."
-          : `${stats.othersEarned} of ${stats.othersTotal} trophies toward the Platinum — ${stats.remaining} left on the list.`,
-      ),
-    ),
-    h(
-      "div",
-      { class: "dash-side" },
-      h(
-        "div",
-        { class: "dash-grades" },
-        GRADES.map((grade) =>
-          h(
-            "span",
-            { class: `dash-grade grade-text-${grade}` },
-            `${GRADE_LABELS[grade]} ${stats.perGrade[grade].earned}/${stats.perGrade[grade].total}`,
-          ),
-        ),
-      ),
-      h(
-        "div",
-        { class: "dash-kinds" },
-        KINDS.map((kind) =>
-          h(
-            "div",
-            { class: "dash-kind", title: `${kind.label}: ${stats.perKind[kind.id].earned} of ${stats.perKind[kind.id].total}` },
-            h("span", { class: "dash-kind-label" }, kind.label),
-            progressBar(stats.perKind[kind.id].earned, stats.perKind[kind.id].total),
-          ),
-        ),
-      ),
-    ),
-  );
-}
-
-function buildHeader() {
-  const spoilerToggle = h("input", {
-    type: "checkbox",
-    checked: state.settings.spoilers,
-    onchange: (event) => {
-      state.settings.spoilers = event.target.checked;
-      ctx.save();
-      showView(ui.view);
-      ctx.setStatus(
-        event.target.checked
-          ? "Spoiler protection on — hidden trophies stay covered until earned."
-          : "Spoiler protection off — hidden trophy names and guides are visible.",
-      );
-    },
-  });
-  const importInput = h("input", {
-    type: "file",
-    accept: "application/json,.json",
-    class: "file-hidden",
-    onchange: async (event) => {
-      const file = event.target.files?.[0];
-      event.target.value = "";
-      if (!file) return;
-      const result = parseImport(await file.text());
-      if (!result.ok) {
-        ctx.setStatus(`Import refused: ${result.error}. Your current progress is untouched.`);
-        return;
-      }
-      replaceState(result.state);
-      ctx.save();
-      spoilerToggle.checked = state.settings.spoilers;
-      refreshDashboard();
-      showView(ui.view);
-      const stats = computeStats(trophies, state);
-      ctx.setStatus(`Progress imported — ${stats.earned} of ${stats.total} trophies earned.`);
-    },
-  });
-  let resetArmed = false;
-  let resetTimer = null;
-  const resetButton = h(
-    "button",
-    {
-      type: "button",
-      class: "tool-btn tool-btn-danger",
-      onclick: () => {
-        if (!resetArmed) {
-          resetArmed = true;
-          resetButton.textContent = "Sure? Click again to reset";
-          resetTimer = setTimeout(() => {
-            resetArmed = false;
-            resetButton.textContent = "Reset";
-          }, 4000);
-          return;
-        }
-        clearTimeout(resetTimer);
-        resetArmed = false;
-        resetButton.textContent = "Reset";
-        replaceState(defaultState());
-        ctx.save();
-        spoilerToggle.checked = state.settings.spoilers;
-        refreshDashboard();
-        showView(ui.view);
-        ctx.setStatus("Tracker reset — all progress, counters and notes cleared.");
-      },
-    },
-    "Reset",
-  );
-  const exportButton = h(
-    "button",
-    {
-      type: "button",
-      class: "tool-btn",
-      onclick: () => {
-        const blob = new Blob([exportJSON(state)], { type: "application/json" });
-        const url = URL.createObjectURL(blob);
-        const link = h("a", { href: url, download: "vice-city-midnight-progress.json" });
-        document.body.append(link);
-        link.click();
-        link.remove();
-        setTimeout(() => URL.revokeObjectURL(url), 5000);
-        ctx.setStatus("Progress exported as vice-city-midnight-progress.json.");
-      },
-    },
-    "Export progress",
-  );
-
-  return h(
-    "header",
-    { class: "site-header" },
-    h(
-      "div",
-      { class: "brand" },
-      h("p", { class: "brand-kicker" }, "Grand Theft Auto VI · PlayStation 5 · fully offline"),
-      h("h1", { class: "brand-title" }, "Vice City ", h("span", { class: "brand-grad" }, "Midnight")),
-      h(
-        "p",
-        { class: "brand-sub" },
-        "The complete trophy guide and tracker: all 55 official trophies with a cited " +
-          "guide for each, a four-stage Platinum roadmap, the one missable flagged in " +
-          "neon, and your progress saved on this device.",
-      ),
-    ),
-    (statsRoot = h("div", { class: "dash" })),
-    h(
-      "div",
-      { class: "tools" },
-      h("label", { class: "toggle-label tools-spoiler" }, spoilerToggle, h("span", {}, "Spoiler protection")),
-      exportButton,
-      h("label", { class: "tool-btn import-label" }, "Import progress", importInput),
-      resetButton,
-    ),
-    (statusRoot = h("p", { class: "status-line", role: "status" }, ui.status)),
-    (navRoot = h(
-      "nav",
-      { class: "tabs", "aria-label": "Views" },
-      VIEWS.map((view) =>
-        h(
-          "button",
-          {
-            type: "button",
-            class: `tab ${ui.view === view.id ? "tab-on" : ""}`,
-            "data-view": view.id,
-            onclick: () => showView(view.id),
-          },
-          view.label,
-        ),
-      ),
-    )),
-  );
-}
-
-function showView(name) {
-  ui.view = name;
-  if (location.hash !== `#/${name}`) history.replaceState(null, "", `#/${name}`);
-  for (const btn of navRoot?.children ?? []) {
-    btn.classList.toggle("tab-on", btn.getAttribute("data-view") === name);
+function setView(view) {
+  ctx.view = view;
+  if (location.hash !== '#/' + view) {
+    history.replaceState(null, '', '#/' + view);
   }
-  clear(viewRoot);
-  const factory = {
-    checklist: createChecklist,
-    roadmap: createRoadmap,
-    missables: createMissables,
-    nextup: createNextUp,
-  }[name];
-  factory(viewRoot, ctx);
-  window.scrollTo(0, 0);
+  ctx.renderAll();
+}
+
+function renderNav() {
+  clear(ctx.els.nav);
+  for (const view of VIEWS) {
+    const btn = el('button', 'nav-btn' + (ctx.view === view.id ? ' is-active' : ''), view.label);
+    btn.type = 'button';
+    btn.addEventListener('click', () => setView(view.id));
+    ctx.els.nav.append(btn);
+  }
+}
+
+function renderView() {
+  const main = ctx.els.view;
+  clear(main);
+  if (ctx.view === 'checklist') {
+    const layout = el('div', 'checklist-layout');
+    const left = el('div', 'checklist-left');
+    ctx.els.dashboard = el('section', 'dashboard panel');
+    ctx.els.toolbar = el('section', 'toolbar panel');
+    ctx.els.list = el('section', 'list-wrap');
+    left.append(ctx.els.dashboard, ctx.els.toolbar, ctx.els.list);
+    ctx.els.detail = el('aside', 'detail panel');
+    layout.append(left, ctx.els.detail);
+    main.append(layout);
+    ctx.refreshStats();
+    renderDashboard(ctx.els.dashboard, ctx.stats);
+    renderToolbar(ctx.els.toolbar, ctx);
+    renderListInto();
+    renderDetail(ctx.els.detail, ctx);
+  } else if (ctx.view === 'roadmap') {
+    const panel = el('section', 'panel wide');
+    main.append(panel);
+    renderRoadmap(panel, ctx);
+  } else if (ctx.view === 'missables') {
+    const panel = el('section', 'panel wide');
+    main.append(panel);
+    renderMissables(panel, ctx);
+  } else if (ctx.view === 'nextup') {
+    const panel = el('section', 'panel wide');
+    main.append(panel);
+    renderNextUp(panel, ctx);
+  }
+}
+
+function renderTools() {
+  const tools = ctx.els.tools;
+  clear(tools);
+
+  const exportBtn = el('button', 'btn', 'Export progress');
+  exportBtn.type = 'button';
+  exportBtn.addEventListener('click', () => {
+    const blob = new Blob([exportPayload(ctx.state)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = el('a');
+    link.href = url;
+    link.download = 'vice-city-midnight-progress.json';
+    document.body.append(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 2000);
+    flash('Progress exported as a JSON file.');
+  });
+  tools.append(exportBtn);
+
+  const importBtn = el('button', 'btn', 'Import progress');
+  importBtn.type = 'button';
+  const fileInput = el('input');
+  fileInput.type = 'file';
+  fileInput.accept = '.json,application/json';
+  fileInput.hidden = true;
+  importBtn.addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', async () => {
+    const file = fileInput.files && fileInput.files[0];
+    fileInput.value = '';
+    if (!file) return;
+    const text = await file.text();
+    const result = parseImport(text, ctx.trophies);
+    if (!result.ok) {
+      flash(result.error, true);
+      return;
+    }
+    ctx.state = result.state;
+    ctx.persist();
+    ctx.renderAll();
+    flash('Progress imported.');
+  });
+  tools.append(importBtn, fileInput);
+
+  const resetBtn = el('button', 'btn btn-danger', 'Reset all progress');
+  resetBtn.type = 'button';
+  let armed = false;
+  let armTimer = null;
+  resetBtn.addEventListener('click', () => {
+    if (!armed) {
+      armed = true;
+      resetBtn.textContent = 'Click again to confirm reset';
+      resetBtn.classList.add('is-armed');
+      armTimer = setTimeout(() => {
+        armed = false;
+        resetBtn.textContent = 'Reset all progress';
+        resetBtn.classList.remove('is-armed');
+      }, 4000);
+      return;
+    }
+    clearTimeout(armTimer);
+    armed = false;
+    resetBtn.textContent = 'Reset all progress';
+    resetBtn.classList.remove('is-armed');
+    ctx.state = { earned: {}, counters: {}, notes: {}, spoilers: ctx.state.spoilers, habits: {} };
+    ctx.persist();
+    ctx.renderAll();
+    flash('Progress reset. A clean run at Leonida.');
+  });
+  tools.append(resetBtn);
+
+  ctx.els.flash = el('span', 'tools-flash');
+  tools.append(ctx.els.flash);
+}
+
+function flash(message, isError) {
+  if (!ctx.els.flash) return;
+  ctx.els.flash.textContent = message;
+  ctx.els.flash.classList.toggle('is-error', Boolean(isError));
+}
+
+function viewFromHash() {
+  const match = /^#\/(\w+)/.exec(location.hash || '');
+  const id = match ? match[1] : 'checklist';
+  return VIEWS.some((v) => v.id === id) ? id : 'checklist';
 }
 
 async function boot() {
-  const app = document.getElementById("app");
-  try {
-    trophies = await loadTrophies();
-  } catch (error) {
-    app.append(h("p", { class: "fatal" }, `Could not load the trophy list: ${error.message}`));
-    return;
-  }
-  app.append(
-    buildHeader(),
-    (viewRoot = h("main", { class: "view-root" })),
-    h(
-      "footer",
-      { class: "site-footer" },
-      h(
-        "p",
-        {},
-        "Vice City Midnight is a fan-made, open-source guide. Trophy names, descriptions " +
-          "and grades are the official PlayStation text, listed by Exophase and " +
-          "PSNProfiles; every guide is written for this app and cites its sources. " +
-          "Not affiliated with Rockstar Games or Take-Two Interactive.",
-      ),
+  const app = document.getElementById('app');
+  const header = el('header', 'site-header');
+  const titleBox = el('div', 'title-box');
+  titleBox.append(el('p', 'title-kicker', 'Grand Theft Auto VI · PlayStation 5 · fully offline'));
+  titleBox.append(el('h1', 'site-title', 'Vice City Midnight'));
+  titleBox.append(
+    el(
+      'p',
+      'title-sub',
+      'A trophy guide and tracker for all 55 official PS5 trophies: cited guides, a four-stage roadmap to the ' +
+        'Platinum, the one missable flagged, and your progress saved in this browser.',
     ),
   );
-  refreshDashboard();
-  showView(ui.view);
-  if (params.has("shot")) {
-    const scroll = Number(params.get("scroll"));
-    await document.fonts.ready;
-    await new Promise((resolve) =>
-      requestAnimationFrame(() => requestAnimationFrame(resolve)),
-    );
-    if (Number.isFinite(scroll) && scroll > 0) {
-      window.scrollTo(0, scroll);
-      // Let the compositor rasterize the scrolled-to region before the
-      // screenshot is taken: two more frames and a beat of real time.
-      await new Promise((resolve) =>
-        requestAnimationFrame(() => requestAnimationFrame(resolve)),
-      );
-      await new Promise((resolve) => setTimeout(resolve, 600));
+  header.append(titleBox);
+  ctx.els.nav = el('nav', 'site-nav');
+  header.append(ctx.els.nav);
+  ctx.els.tools = el('div', 'data-tools');
+  header.append(ctx.els.tools);
+  app.append(header);
+
+  ctx.els.view = el('main', 'site-main');
+  app.append(ctx.els.view);
+
+  const footer = el('footer', 'site-footer');
+  footer.append(
+    el(
+      'p',
+      null,
+      'Official trophy names, descriptions and grades are PlayStation\u2019s, as listed by Exophase and ' +
+        'PSNProfiles. Guides are this app\u2019s own words and cite their sources. An unofficial fan work — ' +
+        'no Rockstar Games artwork or logos. Everything runs from this folder; the only file fetched is ' +
+        'data/trophies.json, its own data.',
+    ),
+  );
+  app.append(footer);
+
+  try {
+    const data = await loadCatalogue();
+    ctx.trophies = trophiesOf(data);
+  } catch (error) {
+    clear(ctx.els.view);
+    ctx.els.view.append(el('p', 'load-error', 'The trophy data could not be loaded: ' + error.message));
+    return;
+  }
+
+  ctx.view = inShotMode ? shotViewToView(shotView) : viewFromHash();
+  if (inShotMode) history.replaceState(null, '', location.pathname + location.search);
+  renderTools();
+  ctx.renderAll();
+
+  window.addEventListener('hashchange', () => {
+    const next = viewFromHash();
+    if (next !== ctx.view && !inShotMode) {
+      ctx.view = next;
+      ctx.renderAll();
     }
-    window.__shotReady = true;
+  });
+
+  if (inShotMode) {
+    // Wait for the local display font so the screenshot never catches a
+    // half-painted header.
+    await document.fonts.ready;
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      window.__shotReady = true;
+    }));
   }
 }
 
-// Top-level await: the module (and with it the document's load event)
-// settles only once the app has rendered — and, in shot mode, scrolled
-// and painted — so a screenshot taken at load shows the finished page.
-await boot();
+function shotViewToView(shot) {
+  if (shot === 'planner' || shot === 'nextup') return 'nextup';
+  if (shot === 'roadmap' || shot === 'missables' || shot === 'checklist') return shot;
+  return 'checklist';
+}
+
+boot();

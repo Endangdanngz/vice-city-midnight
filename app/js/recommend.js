@@ -1,50 +1,48 @@
-// The Next Up planner: which trophies to chase next, and why. Rules, in
-// order: the one missable trophy outranks everything while it is
-// unearned; then the earliest roadmap stage wins; inside a stage, a
-// counter that is already moving beats a fresh start, and the counter
-// nearest completion comes first. Masked (spoiler-hidden) trophies are
-// never recommended by name.
+// recommend.js — the Next Up planner's ordering: the missable first, then the
+// roadmap's stage order, and inside a stage the counter nearest completion
+// first. Every pick carries a one-line reason, and names stay spoiler-safe.
 
-import { counterOf, isEarned } from "./store.js";
-import { isMasked } from "./filters.js";
+import { counterOf, isEarned } from './store.js';
+import { displayName, isMasked } from './filters.js';
 
-export function counterRatio(trophy, state) {
-  if (!trophy.target) return -1;
-  return counterOf(trophy, state) / trophy.target;
-}
-
-export function formatCount(trophy, value) {
-  if (trophy.unit === "$") return `$${value.toLocaleString("en-US")}`;
-  return value.toLocaleString("en-US");
-}
-
-function reasonFor(trophy, state) {
+function reasonFor(state, trophies, trophy) {
   if (trophy.missable) {
-    return "Missable — the Chapter 1 meditation spot cannot be recovered later. Do it now.";
+    return 'Potentially missable — the Chapter 1 balcony spot vanishes when Chapter 1 ends. Do it first.';
+  }
+  if (trophy.id === 48) {
+    return 'Its choices are permanent: pushing the Criminal Profile to Irredeemable cannot be undone.';
   }
   if (trophy.target) {
-    const now = counterOf(trophy, state);
-    if (now > 0) {
-      return `Stage ${trophy.stage} · already at ${formatCount(trophy, now)} of ${formatCount(trophy, trophy.target)} — nearest finish first.`;
+    const value = counterOf(state, trophy);
+    if (value > 0) {
+      return 'Counter already moving — ' + value.toLocaleString('en-US') + ' of ' + trophy.target.toLocaleString('en-US') + '. Nearest finishes first.';
     }
-    return `Stage ${trophy.stage} · a long counter (${formatCount(trophy, trophy.target)} in total) — starting early beats grinding late.`;
+    return 'A counter trophy in stage ' + trophy.stage + ' — start it now and it fills in as you play.';
   }
-  if (trophy.kind === "story") return `Stage ${trophy.stage} · story progress unlocks the rest of the list.`;
-  if (trophy.kind === "partner") return `Stage ${trophy.stage} · needs Jason and Lucia together — grab it in free roam.`;
-  return `Stage ${trophy.stage} · a quick one-off that also feeds the 100% checklist.`;
+  if (trophy.kind === 'story') return 'Next in the roadmap\u2019s stage order — story progress unlocks everything else.';
+  if (trophy.kind === 'partner') return 'Needs Jason and Lucia together, playable from Chapter 2.';
+  if (trophy.kind === 'platinum') return 'Automatic at 54 of 54 — it lights itself when the rest are done.';
+  return 'Stage ' + trophy.stage + ' of the roadmap — clear it while you are in the area.';
 }
 
-export function nextUp(trophies, state, limit = 8) {
-  const candidates = trophies.filter(
-    (trophy) =>
-      trophy.id !== 1 && !isEarned(trophy, state, trophies) && !isMasked(trophy, state, trophies),
-  );
-  const sorted = [...candidates].sort((a, b) => {
-    if (a.missable !== b.missable) return a.missable ? -1 : 1;
-    if (a.stage !== b.stage) return a.stage - b.stage;
-    const ratioDiff = counterRatio(b, state) - counterRatio(a, state);
-    if (ratioDiff !== 0) return ratioDiff;
-    return a.id - b.id;
+export function nextUp(state, trophies, limit) {
+  const remaining = trophies.filter((t) => !isEarned(state, trophies, t));
+  const scored = remaining.map((trophy) => {
+    const ratio = trophy.target ? counterOf(state, trophy) / trophy.target : -1;
+    return { trophy, ratio };
   });
-  return sorted.slice(0, limit).map((trophy) => ({ trophy, reason: reasonFor(trophy, state) }));
+  scored.sort((a, b) => {
+    if (a.trophy.missable !== b.trophy.missable) return a.trophy.missable ? -1 : 1;
+    if (a.trophy.stage !== b.trophy.stage) return a.trophy.stage - b.trophy.stage;
+    if (b.ratio !== a.ratio) return b.ratio - a.ratio;
+    return a.trophy.id - b.trophy.id;
+  });
+  return scored.slice(0, limit || 12).map(({ trophy }) => ({
+    trophy,
+    name: displayName(state, trophies, trophy),
+    masked: isMasked(state, trophies, trophy),
+    reason: isMasked(state, trophies, trophy)
+      ? 'A hidden trophy in stage ' + trophy.stage + ' — spoiler protection keeps its name covered until it is earned.'
+      : reasonFor(state, trophies, trophy),
+  }));
 }

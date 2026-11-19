@@ -1,7 +1,14 @@
 {
  "game": "Grand Theft Auto VI",
  "platform": "PlayStation 5",
- "list": "the official 55 PlayStation 5 trophies, as published on PSN and listed by Exophase and PSNProfiles on 2026-11-18; guides, kinds, stages and flags are this app's own work and cite their sources per trophy",
+ "list": "The official 55 PS5 trophies, as published on PlayStation Network and listed by Exophase and PSNProfiles (2026-11-18): 1 platinum, 2 gold, 6 silver, 46 bronze, 28 hidden. Names and descriptions are the official ones, verbatim. Guides, kinds, stages and flags are this app's own work and cite their sources per trophy.",
+ "sources": [
+  { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+  { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" },
+  { "label": "GTA-Zone — GTA 6 trophy list and roadmap notes", "url": "https://gta-zone.com/news/gta-6-trophies-achievements/" },
+  { "label": "Output Lag — GTA 6 trophy list", "url": "https://outputlag.com/guides/gta-6-trophy-list/" },
+  { "label": "PlanetGTA6 — GTA 6 trophies", "url": "https://www.planetgta6.com/en/gta-6-trophies/" }
+ ],
  "trophies": [
   {
    "id": 1,
@@ -12,28 +19,12 @@
    "hidden": false,
    "stage": 4,
    "missable": false,
-   "guide": "The Platinum is automatic: it unlocks the moment the other 54 trophies are all earned, so there is nothing separate to hunt down. Work the roadmap stages in order and let this one arrive on its own — when the tracker reads 54 of 54 others earned, Vice Got a Price! is yours.",
-   "steps": [
-    "Earn the other 54 trophies",
-    "The Platinum pops on its own"
-   ],
+   "guide": "The Platinum is automatic: it unlocks the moment the other 54 trophies are all earned, so there is nothing separate to hunt. Work the roadmap stages in order, keep an eye on the long counters, and this lights up on its own at 54 of 54. PowerPyx rates the full Platinum at roughly 200 hours and 4 out of 10 difficulty (via GTA-Zone), so treat it as a marathon, not a skill wall.",
+   "steps": ["Earn the other 54 trophies", "The Platinum unlocks by itself — no extra task"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "PlanetGTA6 — GTA 6 trophies, cross-checked against PSN",
-     "url": "https://www.planetgta6.com/en/gta-6-trophies/"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" },
+    { "label": "GTA-Zone — GTA 6 trophy list and roadmap notes", "url": "https://gta-zone.com/news/gta-6-trophies-achievements/" }
    ]
   },
   {
@@ -45,24 +36,11 @@
    "hidden": true,
    "stage": 1,
    "missable": false,
-   "guide": "Story trophy for finishing Gone Fishing, the opening mission. It cannot be missed: play through the prologue and it unlocks as the mission wraps up. On a fresh save this is the first trophy of the run.",
+   "guide": "A story trophy for finishing Gone Fishing, the opening mission of the campaign. It cannot be missed: simply play through the prologue and the trophy pops as the mission wraps up. It is the first trophy most players will earn.",
+   "steps": ["Start the story", "Play through the Gone Fishing mission to its end"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    },
-    {
-     "name": "Output Lag — GTA 6 trophy list, missables and platinum time",
-     "url": "https://outputlag.com/guides/gta-6-trophy-list/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -74,32 +52,12 @@
    "hidden": true,
    "stage": 1,
    "missable": false,
-   "guide": "Story trophy for completing Chapter 1 — but do not rush the chapter's end. One meditation spot for Positive Mental Attitude sits on Lucia's balcony during Chapter 1 and disappears afterwards, and the game has no mission replay. Meditate there first, then finish the chapter, and drop a manual save at the chapter break.",
-   "steps": [
-    "Meditate at the Chapter 1 balcony spot before finishing the chapter",
-    "Complete the remaining Chapter 1 missions",
-    "Save manually at the chapter break"
-   ],
+   "guide": "Finish Chapter 1 of the story. Before you close the chapter out, stop at the meditation spot on Lucia's balcony: that spot belongs to Positive Mental Attitude and is only there during Chapter 1, and there is no mission replay to go back for it (PowerPyx, via GTA-Zone; Output Lag). Keep a manual save at the chapter's start as insurance.",
+   "steps": ["Play Chapter 1 through to its final mission", "Meditate on Lucia's balcony before finishing the chapter"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    },
-    {
-     "name": "Output Lag — GTA 6 trophy list, missables and platinum time",
-     "url": "https://outputlag.com/guides/gta-6-trophy-list/"
-    },
-    {
-     "name": "PowerPyx — GTA 6 trophy guide and platinum roadmap"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" },
+    { "label": "Output Lag — GTA 6 trophy list", "url": "https://outputlag.com/guides/gta-6-trophy-list/" }
    ]
   },
   {
@@ -111,24 +69,12 @@
    "hidden": true,
    "stage": 1,
    "missable": false,
-   "guide": "Story trophy for completing Chapter 2. By now both Jason and Lucia are playable, which opens the partner trophies and most of the open-world list. Keep the habit of a manual save at the chapter's start as insurance.",
+   "guide": "Finish Chapter 2 of the story; the name is printed with asterisks by PlayStation itself. Chapter 2 is also where the game opens up: several trophies need Jason and Lucia together, and most of the list becomes available once both are playable from this chapter on (Output Lag). Make a fresh manual save when the chapter begins.",
+   "steps": ["Play Chapter 2 through to its final mission", "Save manually at the chapter start"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    },
-    {
-     "name": "Output Lag — GTA 6 trophy list, missables and platinum time",
-     "url": "https://outputlag.com/guides/gta-6-trophy-list/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" },
+    { "label": "Output Lag — GTA 6 trophy list", "url": "https://outputlag.com/guides/gta-6-trophy-list/" }
    ]
   },
   {
@@ -140,24 +86,11 @@
    "hidden": true,
    "stage": 1,
    "missable": false,
-   "guide": "Story trophy for completing Chapter 3. Push the main missions through and it unlocks as the chapter closes; no guide currently flags anything in this chapter as missable. Keep rotating a manual save at each chapter start.",
+   "guide": "Finish Chapter 3 of the story. Story chapters cannot be replayed, but nothing in this chapter is missable, so play it straight through. Keep the habit of a manual save at the chapter's start anyway — it protects the one genuinely missable trophy earlier in the run and costs nothing.",
+   "steps": ["Play Chapter 3 through to its final mission"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    },
-    {
-     "name": "Output Lag — GTA 6 trophy list, missables and platinum time",
-     "url": "https://outputlag.com/guides/gta-6-trophy-list/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -169,24 +102,11 @@
    "hidden": true,
    "stage": 1,
    "missable": false,
-   "guide": "Story trophy for completing Chapter 4, the last full chapter before the endgame. Finish its missions in order and the trophy pops as the chapter ends. Make sure a manual save exists before you go into the final mission that follows.",
+   "guide": "Finish Chapter 4 of the story. After this chapter only the endgame remains, so it is a good moment to sweep up stranger strands and counters before the finale. Save manually before starting the final mission when you get there.",
+   "steps": ["Play Chapter 4 through to its final mission"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    },
-    {
-     "name": "Output Lag — GTA 6 trophy list, missables and platinum time",
-     "url": "https://outputlag.com/guides/gta-6-trophy-list/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -198,28 +118,13 @@
    "hidden": true,
    "stage": 1,
    "missable": false,
-   "guide": "Gold story trophy for completing the final mission. Save manually before you start it: there is no mission replay, and a clean pre-finale save is your safety net for endgame clean-up. The trophy unlocks as the story concludes.",
-   "steps": [
-    "Make a manual save before the final mission",
-    "Complete the final mission"
-   ],
+   "guide": "One of only two gold trophies: finish the campaign's final mission. The story runs about 60 hours on its own (reviews, via PlanetGTA6), and finishing it also unlocks the cheat codes — though using a cheat disables trophies and saving, so leave them alone on a Platinum run (PowerPyx, via PlanetGTA6). Make a manual save before the final mission, as Output Lag advises, so the endgame is never a one-way door.",
+   "steps": ["Reach the final mission", "Save manually before starting it", "Complete it"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    },
-    {
-     "name": "Output Lag — GTA 6 trophy list, missables and platinum time",
-     "url": "https://outputlag.com/guides/gta-6-trophy-list/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" },
+    { "label": "PlanetGTA6 — GTA 6 trophies", "url": "https://www.planetgta6.com/en/gta-6-trophies/" },
+    { "label": "Output Lag — GTA 6 trophy list", "url": "https://outputlag.com/guides/gta-6-trophy-list/" }
    ]
   },
   {
@@ -231,24 +136,11 @@
    "hidden": true,
    "stage": 1,
    "missable": false,
-   "guide": "Story trophy for completing the mission Breakfast Run. It sits on the main story path, so it cannot be skipped or missed — play the mission through and it pops on completion.",
+   "guide": "A hidden story trophy for completing the mission Breakfast Run as it comes up in the campaign. It is tied to story progress, so it cannot be missed on a normal playthrough — just finish the mission when it is offered.",
+   "steps": ["Play the story until Breakfast Run is offered", "Complete the mission"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    },
-    {
-     "name": "Output Lag — GTA 6 trophy list, missables and platinum time",
-     "url": "https://outputlag.com/guides/gta-6-trophy-list/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -260,24 +152,11 @@
    "hidden": true,
    "stage": 1,
    "missable": false,
-   "guide": "Story trophy for completing The Cartel Heist. It advances as part of the main story, so progress normally and it unlocks when the heist wraps up. Heist missions are worth a spare manual save beforehand, just in case.",
+   "guide": "A hidden story trophy for completing The Cartel Heist, one of the campaign's set-piece missions. It unlocks through story progress and cannot be missed — finish the heist when the story brings you to it.",
+   "steps": ["Play the story until The Cartel Heist", "Complete the heist"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    },
-    {
-     "name": "Output Lag — GTA 6 trophy list, missables and platinum time",
-     "url": "https://outputlag.com/guides/gta-6-trophy-list/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -289,24 +168,11 @@
    "hidden": true,
    "stage": 1,
    "missable": false,
-   "guide": "Story trophy for completing Child's Play. Follow the story missions and this unlocks automatically at the mission's end — nothing extra is required.",
+   "guide": "A hidden story trophy for completing the mission Child's Play. It arrives through normal story progress and cannot be missed — complete the mission when it appears.",
+   "steps": ["Play the story until Child's Play is offered", "Complete the mission"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    },
-    {
-     "name": "Output Lag — GTA 6 trophy list, missables and platinum time",
-     "url": "https://outputlag.com/guides/gta-6-trophy-list/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -318,24 +184,11 @@
    "hidden": true,
    "stage": 1,
    "missable": false,
-   "guide": "Story trophy for completing Headliners. It is on the main story path and unlocks when the mission finishes; no side conditions are known.",
+   "guide": "A hidden story trophy for completing the mission Headliners. It is part of the campaign's mission chain, so it unlocks through story progress and cannot be missed.",
+   "steps": ["Play the story until Headliners is offered", "Complete the mission"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    },
-    {
-     "name": "Output Lag — GTA 6 trophy list, missables and platinum time",
-     "url": "https://outputlag.com/guides/gta-6-trophy-list/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -347,24 +200,11 @@
    "hidden": true,
    "stage": 1,
    "missable": false,
-   "guide": "Story trophy for completing VCIA Takedown, a story mission around Vice City International Airport. Play it through as part of the campaign and the trophy pops at completion.",
+   "guide": "A hidden story trophy for completing VCIA Takedown, the campaign mission set around Vice City International Airport. It unlocks through story progress and cannot be missed — finish the mission when the story sends you to the airport.",
+   "steps": ["Play the story until VCIA Takedown", "Complete the mission"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    },
-    {
-     "name": "Output Lag — GTA 6 trophy list, missables and platinum time",
-     "url": "https://outputlag.com/guides/gta-6-trophy-list/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -376,24 +216,11 @@
    "hidden": true,
    "stage": 1,
    "missable": false,
-   "guide": "Story trophy for completing Operation Savage Glory. A main-story mission, so it unlocks in normal progression — keep your chapter-start manual save habit going and move on.",
+   "guide": "A hidden story trophy for completing Operation Savage Glory. It is a campaign mission, so it unlocks through story progress and cannot be missed.",
+   "steps": ["Play the story until Operation Savage Glory", "Complete the mission"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    },
-    {
-     "name": "Output Lag — GTA 6 trophy list, missables and platinum time",
-     "url": "https://outputlag.com/guides/gta-6-trophy-list/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -405,28 +232,12 @@
    "hidden": false,
    "stage": 4,
    "missable": false,
-   "guide": "Gold trophy for reaching 100% on the game's completion checklist. This is the long tail of the Platinum: story, stranger strands, collectibles, activities and world tasks all feed the percentage. Current guides report that nothing on the 100% checklist is missable, so treat it as a clean-up trophy and work the in-game checklist one category at a time.",
-   "steps": [
-    "Finish the story first",
-    "Clear stranger strands and collectibles",
-    "Sweep activities and world tasks until the checklist reads 100%"
-   ],
+   "guide": "The second gold, and the spine of the whole Platinum: bring the game's completion stat to 100 percent. Work the in-game completion checklist — story, stranger strands, collectibles, activities and world tasks all feed it — and use this tracker to see which counters are still short. GTA-Zone confirms nothing on the 100 percent checklist is missable, so it is purely a matter of hours: most of the roughly 200-hour Platinum estimate is spent here (PowerPyx, via GTA-Zone).",
+   "steps": ["Finish the story first", "Clear every strand, collectible set and activity the checklist counts", "Check the in-game completion stat until it reads 100%"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    },
-    {
-     "name": "PowerPyx — GTA 6 trophy guide and platinum roadmap"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" },
+    { "label": "GTA-Zone — GTA 6 trophy list and roadmap notes", "url": "https://gta-zone.com/news/gta-6-trophies-achievements/" }
    ]
   },
   {
@@ -439,19 +250,12 @@
    "stage": 3,
    "missable": false,
    "target": 250,
-   "guide": "Complete 250 stunts across Leonida. Stunts register as you launch vehicles off ramps and stunt points, so weave them into ordinary driving instead of grinding them in one sitting. PSN tracks the count for you — the counter here mirrors it — and a failed attempt is best retried on the spot while the route is fresh.",
+   "unit": "stunts",
+   "guide": "A silver counter trophy: land 250 stunts, tracked by PSN as you go (PSNProfiles). Stunts register while driving and riding around Leonida, so weave them into exploration and races instead of grinding them in one sitting, and log your count here after each session. No source has yet published a verified stunt-by-stunt location list, so this guide will not invent one — the counter and steady play are the honest route.",
+   "steps": ["Attempt stunts whenever you travel — jumps, flips and near-miss style feats", "Track the PSN count here after each session", "Reach 250"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "PowerPyx — GTA 6 trophy guide and platinum roadmap"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -464,20 +268,12 @@
    "stage": 3,
    "missable": false,
    "target": 9,
-   "guide": "Try each of the game's 9 activity types at least once: races, shooting ranges, fishing, arcade games and the other activity icons on the map. One attempt per type is enough — you do not need to win. Work down the map legend early so no type is left ambiguous later.",
+   "unit": "activity types",
+   "guide": "Sample every kind of activity the game offers — PSN counts 9 activity types in total (PSNProfiles). Whenever a new activity icon appears on the map, try it once instead of driving past: races, fishing, the shooting range, drone races and the arcade all count toward the spread. It pairs naturally with the early hours, when most activity types are still new.",
+   "steps": ["Try one activity of each new type as it appears on the map", "Keep the count here until all 9 types are sampled"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -490,19 +286,12 @@
    "stage": 3,
    "missable": false,
    "target": 42,
-   "guide": "Earn a gold medal in all 42 Shooting Range challenges. Learn each range's target pattern with a practice run first, then chase gold once the layout is familiar; steady accuracy streaks beat raw speed on most ranges. The counter here mirrors the PSN count of gold-medalled challenges.",
+   "unit": "range challenges",
+   "guide": "A silver skill trophy: take gold in all 42 Shooting Range challenges, a count PSN tracks per challenge (PSNProfiles). Learn one weapon class at a time and replay a challenge immediately while its target pattern is fresh — medals reward accuracy and streaks more than raw speed. Challenges can be retried freely, so nothing here is missable; it is the list's purest test of aim.",
+   "steps": ["Unlock the Shooting Range challenges", "Gold-medal each of the 42 challenges, replaying freely", "Log each gold here as it lands"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "PowerPyx — GTA 6 trophy guide and platinum roadmap"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -514,20 +303,11 @@
    "hidden": false,
    "stage": 3,
    "missable": false,
-   "guide": "Win a Top Fun drone race at every location that hosts one. Drone races reward smooth lines over aggression: scout a course once, then run it clean. Only wins at different locations add up — repeating a course you already won does not move you forward.",
+   "guide": "Win a Top Fun drone race at every location that hosts one. New race locations surface as you explore Leonida, so check the map after each new district opens and clear the local race while you are nearby. A win at each location is what counts — a single favourite course, however fast, only covers its own spot.",
+   "steps": ["Find each Top Fun drone race location as the map opens", "Win the race at every location"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -540,20 +320,12 @@
    "stage": 3,
    "missable": false,
    "target": 20,
-   "guide": "Win 20 different races. Repeats of a race you have already won do not count, so keep moving to fresh race markers across the map. Start with the shorter street races to build the count quickly.",
+   "unit": "different races won",
+   "guide": "Win 20 different races — the word 'different' is the catch, because repeating one easy race twenty times does not advance the count (PSN tracks the total to 20, per PSNProfiles). Spread your wins across the race types and districts as they unlock, and tick each new race off here the first time you win it.",
+   "steps": ["Enter races across Leonida as they unlock", "Win 20 distinct ones — no repeats count"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -565,20 +337,11 @@
    "hidden": false,
    "stage": 3,
    "missable": false,
-   "guide": "Beat Cal in a fishing challenge. Find Cal's challenge, learn the reeling rhythm on a first attempt, then out-catch him on the next. It is a one-off contest rather than a grind, so a couple of tries should settle it.",
+   "guide": "Beat Cal, the fishing rival, in one of his fishing challenges. Fishing challenges are an activity you can return to, so if Cal wins a round, adjust your approach and challenge him again — the trophy only needs a single victory over him.",
+   "steps": ["Find a fishing challenge with Cal", "Out-fish him once"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -590,20 +353,11 @@
    "hidden": false,
    "stage": 3,
    "missable": false,
-   "guide": "Complete one arcade game at an arcade cabinet. Any cabinet and any game counts — pick a short one and play it through to the end rather than quitting mid-run.",
+   "guide": "Finish one arcade game at an in-game arcade cabinet. Any single completed game does it — pick the cabinet whose game suits you and play it through to the end rather than quitting mid-run.",
+   "steps": ["Find an arcade cabinet in the world", "Play one arcade game to completion"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -613,26 +367,13 @@
    "grade": "bronze",
    "kind": "story",
    "hidden": true,
-   "stage": 2,
+   "stage": 1,
    "missable": false,
-   "guide": "Complete the final mission of Andy's stranger strand. Work through Andy's Strangers & Freaks missions whenever they appear on the map; the trophy pops at the end of his last one. Each finished strand also feeds Strangers & Freaks and the 100% checklist.",
+   "guide": "A hidden trophy for finishing Andy's mission strand — work through his missions as they appear until his final one, and complete it. Stranger and contact strands stay available as you play, so this is a matter of following his chain to the end rather than a one-chance moment.",
+   "steps": ["Take Andy's missions as they appear", "Complete his final mission"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    },
-    {
-     "name": "Output Lag — GTA 6 trophy list, missables and platinum time",
-     "url": "https://outputlag.com/guides/gta-6-trophy-list/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -642,26 +383,13 @@
    "grade": "bronze",
    "kind": "story",
    "hidden": true,
-   "stage": 2,
+   "stage": 1,
    "missable": false,
-   "guide": "Complete the final mission of Kenton's stranger strand. Follow Kenton's Strangers & Freaks missions as they surface and finish the chain — the trophy unlocks at the end of his last mission, and the strand counts toward Strangers & Freaks and 100% completion.",
+   "guide": "A hidden trophy for finishing Kenton's mission strand. Follow his missions in order as they unlock and complete the last one — the strand remains open while you play, so there is no single moment to lose it.",
+   "steps": ["Take Kenton's missions as they appear", "Complete his final mission"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    },
-    {
-     "name": "Output Lag — GTA 6 trophy list, missables and platinum time",
-     "url": "https://outputlag.com/guides/gta-6-trophy-list/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -671,26 +399,13 @@
    "grade": "bronze",
    "kind": "story",
    "hidden": true,
-   "stage": 2,
+   "stage": 1,
    "missable": false,
-   "guide": "Complete the final mission of Billy's stranger strand. Play Billy's Strangers & Freaks chain through to its end; the trophy pops when his last mission wraps up, and the strand feeds Strangers & Freaks and the 100% checklist.",
+   "guide": "A hidden trophy for finishing Billy's mission strand. Work his missions as they appear and complete the final one; the strand stays available, so steady progress is all it asks.",
+   "steps": ["Take Billy's missions as they appear", "Complete his final mission"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    },
-    {
-     "name": "Output Lag — GTA 6 trophy list, missables and platinum time",
-     "url": "https://outputlag.com/guides/gta-6-trophy-list/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -703,23 +418,12 @@
    "stage": 3,
    "missable": false,
    "target": 8,
-   "guide": "Complete 8 full mission strands for strangers across Leonida. A strand is a chain: finishing one mission usually unlocks the same stranger's next errand later, so revisit their markers. The five named final-mission trophies — Andy, Kenton, Billy, Randy and Tyrone — each complete one strand, so those five plus any three more finish this.",
+   "unit": "stranger strands",
+   "guide": "A silver counter trophy: complete 8 full mission strands for strangers met around Leonida — a strand means the whole chain for that character, not just their first job (PSN tracks the count to 8, per PSNProfiles). The named contacts' final-mission trophies overlap with this list, so finishing strands such as Andy's, Kenton's and Billy's moves both at once. Start strands early so their later missions unlock alongside the story.",
+   "steps": ["Accept stranger missions whenever a new strand opens", "Finish each strand's final mission", "Reach 8 completed strands"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    },
-    {
-     "name": "PowerPyx — GTA 6 trophy guide and platinum roadmap"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -729,26 +433,13 @@
    "grade": "bronze",
    "kind": "story",
    "hidden": true,
-   "stage": 2,
+   "stage": 1,
    "missable": false,
-   "guide": "Complete the final mission of Randy's stranger strand. Work Randy's Strangers & Freaks missions through to the last one; the trophy unlocks at its end, and the strand counts toward Strangers & Freaks and 100% completion.",
+   "guide": "A hidden trophy for finishing Randy's mission strand. Take his missions as they appear and complete the final one — the strand counts toward Strangers & Freaks progress as well, so it earns its keep twice.",
+   "steps": ["Take Randy's missions as they appear", "Complete his final mission"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    },
-    {
-     "name": "Output Lag — GTA 6 trophy list, missables and platinum time",
-     "url": "https://outputlag.com/guides/gta-6-trophy-list/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -758,26 +449,13 @@
    "grade": "bronze",
    "kind": "story",
    "hidden": true,
-   "stage": 2,
+   "stage": 1,
    "missable": false,
-   "guide": "Complete the final mission of Tyrone's stranger strand. Follow Tyrone's Strangers & Freaks chain whenever its markers appear and finish it — the trophy pops at the end of his final mission.",
+   "guide": "A hidden trophy for finishing Tyrone's mission strand. Follow his missions in order and complete the last one; like the other contact strands, it also feeds the Strangers & Freaks count.",
+   "steps": ["Take Tyrone's missions as they appear", "Complete his final mission"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    },
-    {
-     "name": "Output Lag — GTA 6 trophy list, missables and platinum time",
-     "url": "https://outputlag.com/guides/gta-6-trophy-list/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -789,34 +467,16 @@
    "hidden": false,
    "stage": 1,
    "missable": true,
-   "missableNote": "One meditation spot sits on Lucia's balcony during Chapter 1 and disappears once Chapter 1 ends — and there is no mission replay. Meditate there during Chapter 1, and keep a manual save at the start of every chapter.",
+   "missableNote": "The one trophy the guides flag as potentially missable: a meditation spot on Lucia's balcony exists only during Chapter 1 and is gone once the chapter ends, and the game has no mission replay. Meditate there during Chapter 1 and keep a manual save at the start of every chapter (PowerPyx via GTA-Zone; Output Lag).",
    "target": 18,
-   "guide": "Meditate at every meditation spot across Leonida — 18 spots in 10 locations, with both Jason and Lucia. One spot sits on Lucia's balcony during Chapter 1 and is gone for good once the chapter ends, and the game has no mission replay, so do that spot during Chapter 1. The rest can be swept up in free roam whenever you pass them.",
-   "steps": [
-    "Meditate at the Chapter 1 balcony spot before Chapter 1 ends",
-    "Keep a manual save at the start of every chapter",
-    "Sweep the remaining spots in free roam with both characters"
-   ],
+   "unit": "meditation spots",
+   "guide": "Meditate at all 18 meditation spots spread across Leonida — PSN tracks the count to 18 (PSNProfiles). One spot sits on Lucia's balcony and exists only during Chapter 1: meditate there before the chapter ends, because there is no mission replay to return for it, which is why PowerPyx flags this as the list's one potentially missable trophy (via GTA-Zone; also Output Lag). The remaining spots can be visited as you explore, with Jason and Lucia between them.",
+   "steps": ["During Chapter 1: meditate at the spot on Lucia's balcony", "Keep a manual save at the start of every chapter", "Visit the remaining spots across Leonida until the count reads 18"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "PowerPyx — GTA 6 trophy guide and platinum roadmap"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    },
-    {
-     "name": "Output Lag — GTA 6 trophy list, missables and platinum time",
-     "url": "https://outputlag.com/guides/gta-6-trophy-list/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" },
+    { "label": "GTA-Zone — GTA 6 trophy list and roadmap notes", "url": "https://gta-zone.com/news/gta-6-trophies-achievements/" },
+    { "label": "Output Lag — GTA 6 trophy list", "url": "https://outputlag.com/guides/gta-6-trophy-list/" }
    ]
   },
   {
@@ -826,26 +486,13 @@
    "grade": "bronze",
    "kind": "story",
    "hidden": true,
-   "stage": 2,
+   "stage": 1,
    "missable": false,
-   "guide": "Hunt the unique animal Bret asks for, as part of his stranger strand. Follow Bret's missions until the hunt comes up, then track and take down the specific animal he names. The official description does not name the species, and no published guide pins it down further yet — so play the strand and be ready when the hunt starts.",
+   "guide": "A hidden trophy tied to Bret: hunt the unique animal he asks for and complete his request. It comes through his strand of missions, so take his jobs as they appear and finish the hunt he sets you.",
+   "steps": ["Take Bret's missions as they appear", "Track and hunt the unique animal", "Complete his request"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    },
-    {
-     "name": "Output Lag — GTA 6 trophy list, missables and platinum time",
-     "url": "https://outputlag.com/guides/gta-6-trophy-list/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -858,20 +505,12 @@
    "stage": 3,
    "missable": false,
    "target": 3,
-   "guide": "Complete 3 full Collectible Card sets. Cards are hidden pickups scattered across Leonida, and a set only counts once every card in it is found, so sweep region by region instead of chasing single cards. The counter here tracks finished sets, not loose cards.",
+   "unit": "card sets",
+   "guide": "A silver collectible trophy: complete 3 full Collectible Card sets (PSN tracks the sets, per PSNProfiles). Cards are scattered through the world, so pick up every card you spot while exploring rather than leaving the whole hunt to the endgame, and focus on finishing sets rather than spreading singles across all of them. A set only counts when it is complete.",
+   "steps": ["Collect cards whenever you find them", "Finish one set at a time", "Complete 3 sets"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -884,20 +523,12 @@
    "stage": 3,
    "missable": false,
    "target": 100,
-   "guide": "Use the WAiNK It spot at 100 locations. These marked viewpoints sit all over the state; when you pass one, stop and use it rather than saving it for later. The count is large but each stop takes seconds, so route them into ordinary travel and exploration.",
+   "unit": "locations",
+   "guide": "A silver counter trophy: use WAiNK It at 100 different locations across Leonida, tracked by PSN to 100 (PSNProfiles). Treat it as a travelling habit — whenever you arrive somewhere new, do it once and log the count here, and the hundred will fill in long before the endgame. Locations are the point: repeating it in one spot does not move the counter.",
+   "steps": ["Use WAiNK It once in each new location you visit", "Log the running count here", "Reach 100 locations"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -910,20 +541,12 @@
    "stage": 3,
    "missable": false,
    "target": 50,
-   "guide": "Complete 50 of the game's Challenges. Challenges are short scored tasks offered around the world — clear them as you encounter them instead of banking them all for the endgame. The counter here mirrors the PSN progress count.",
+   "unit": "challenges",
+   "guide": "Complete 50 of the game's Challenges, tracked by PSN to 50 (PSNProfiles). Challenges surface through play — activities, exploration and world events all feed the pool — so accept them as they appear instead of saving them for a single grind. Keep the count updated here and the trophy lands well before the 100 percent push.",
+   "steps": ["Take on Challenges as they appear in the world", "Complete 50 of them"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -935,28 +558,12 @@
    "hidden": false,
    "stage": 2,
    "missable": false,
-   "guide": "Lose a 4-star Wanted Level while your partner is with you, and get clear of the heat. Build the wanted level together first — crimes committed as a pair — then break line of sight and stay hidden until the stars drain away. Both characters need to be together when the heat comes off.",
-   "steps": [
-    "Raise a 4-star wanted level with your partner beside you",
-    "Break line of sight and hide until the stars drain"
-   ],
+   "guide": "A partner trophy: with Jason and Lucia together, raise a 4-star wanted level and then lose it completely while staying together. It needs both protagonists playable, which the game opens up from Chapter 2 (Output Lag). Deliberately build the heat away from dense police areas, then break line of sight and hide until the stars drain — escaping is the trophy, not the crime spree.",
+   "steps": ["Play as the pair, from Chapter 2 on", "Raise the wanted level to 4 stars together", "Break away and stay hidden until the level is fully lost"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "Output Lag — GTA 6 trophy list, missables and platinum time",
-     "url": "https://outputlag.com/guides/gta-6-trophy-list/"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" },
+    { "label": "Output Lag — GTA 6 trophy list", "url": "https://outputlag.com/guides/gta-6-trophy-list/" }
    ]
   },
   {
@@ -969,24 +576,13 @@
    "stage": 2,
    "missable": false,
    "target": 3,
-   "guide": "Rob 3 shops back-to-back with your partner without losing your Wanted Level in between. Plan a tight route of three nearby shops, keep moving so the wanted level never fully drains, and finish the third robbery before you escape. The counter tracks robberies in your current streak.",
+   "unit": "shops in one spree",
+   "guide": "A partner trophy with a chain condition: rob 3 shops back-to-back with your partner while keeping a wanted level the whole time — if the stars fully drain between shops, the chain breaks (the count of 3 is the official requirement, per the PSN list on Exophase). Pick a cluster of shops close together, move fast between them, and keep the heat simmering rather than escaping it. Both protagonists are playable together from Chapter 2 (Output Lag).",
+   "steps": ["Group up as Jason and Lucia", "Rob a first shop and keep the wanted level alive", "Hit two more shops back-to-back without the stars clearing"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "Output Lag — GTA 6 trophy list, missables and platinum time",
-     "url": "https://outputlag.com/guides/gta-6-trophy-list/"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" },
+    { "label": "Output Lag — GTA 6 trophy list", "url": "https://outputlag.com/guides/gta-6-trophy-list/" }
    ]
   },
   {
@@ -999,20 +595,12 @@
    "stage": 3,
    "missable": false,
    "target": 100,
-   "guide": "Discover 100 different vehicles — a vehicle counts as discovered when you get in and drive it. Swap cars often in traffic instead of keeping one favourite, and check car parks, docks and depots for rarer models. Most of the count arrives naturally across a full playthrough.",
+   "unit": "vehicles discovered",
+   "guide": "Discover 100 different vehicles, tracked by PSN to 100 (PSNProfiles). Make a habit of getting into any car, boat or bike you have not driven before — traffic variety changes by district and time of day, so exploring new areas fills this in naturally. Log the count here after long drives and it should complete long before the endgame.",
+   "steps": ["Enter every new vehicle model you see", "Vary districts to widen the traffic pool", "Reach 100 discovered vehicles"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -1024,20 +612,11 @@
    "hidden": false,
    "stage": 3,
    "missable": false,
-   "guide": "Take down 5 enemies inside a single use of Combat Focus. Line up a group first — a gang spot or a busy confrontation — then trigger Combat Focus and chain targets quickly before the effect ends. If a use falls short, reposition and try again on the next group.",
+   "guide": "Drop 5 enemies inside one activation of Combat Focus, the slow-motion aiming ability. Set the moment up rather than hoping for it: start a fight against a group of five or more, position with clear sightlines, then trigger Combat Focus and work target to target before it runs out. Failed attempts cost nothing — any busy firefight is another try.",
+   "steps": ["Find a fight with at least 5 enemies in view", "Activate Combat Focus", "Take down 5 before it ends"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -1049,20 +628,11 @@
    "hidden": true,
    "stage": 2,
    "missable": false,
-   "guide": "Make an 'unscheduled departure' at VCIA, the airport: in plain terms, leave by air without being scheduled to — take an aircraft at VCIA and fly out. The official description is playful rather than precise, so treat the exact trigger as unconfirmed; stealing a plane and taking off is the natural reading of it.",
+   "guide": "A hidden one-off at VCIA, Vice City International Airport: leave the airport in a way no timetable allows — the official description calls it an unscheduled departure. The natural reading is to take an aircraft from the airport under your own power outside any mission or scheduled flight, and get airborne. Expect a wanted level for it, so plan the getaway before you roll.",
+   "steps": ["Head to VCIA airport", "Take an aircraft outside any mission", "Get airborne and away"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "PlanetGTA6 — GTA 6 trophies, cross-checked against PSN",
-     "url": "https://www.planetgta6.com/en/gta-6-trophies/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -1074,20 +644,11 @@
    "hidden": true,
    "stage": 2,
    "missable": false,
-   "guide": "The official description — 'Kinda hot in these Rhinos' — points at the Rhino tank, but no source we trust yet pins down the exact in-game action, so this guide will not invent one. Expect a story or world moment involving a Rhino; if you meet one, engage with it and watch for the pop. This entry will be updated when a verified method is published.",
+   "guide": "Honesty first: no source we cite has pinned down this trophy's exact trigger yet — the official description only jokes about Rhinos, the game's tanks. The name and description together point at an encounter with a Rhino tank, most plausibly surviving or escaping one during a high-heat confrontation. We will not dress a guess up as a method: when a cited guide verifies the trigger, this entry will say so; until then, treat any Rhino encounter as your chance and log what worked in your notes.",
+   "steps": ["Watch for a Rhino tank encounter at high wanted levels", "Survive the encounter", "Note what triggered it — no verified method is published yet"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "PlanetGTA6 — GTA 6 trophies, cross-checked against PSN",
-     "url": "https://www.planetgta6.com/en/gta-6-trophies/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -1099,20 +660,11 @@
    "hidden": false,
    "stage": 3,
    "missable": false,
-   "guide": "Rob a jewelry store without being detected. Case the store first, go in quietly, keep the robbery fast and stay out of sight — being spotted fails the condition. A clean run means no detection from the moment you enter to the moment you leave.",
+   "guide": "Rob a jewelry store and get away without ever being detected — stealth is the whole trophy. Scout the store first, approach quietly, keep weapons and witnesses under control, and leave before anyone raises the alarm; if you are spotted, walk away and try another store rather than forcing it. Detection, not the escape, is what fails the attempt.",
+   "steps": ["Choose a jewelry store and watch its routine", "Enter quietly and rob it without being seen", "Slip away before any alarm"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -1125,20 +677,12 @@
    "stage": 3,
    "missable": false,
    "target": 5,
-   "guide": "Rob 5 bank vaults and escape each time. Vault jobs are bigger than shop robberies: plan your exit route before you start, and lose the heat fully for the robbery to count. The counter tracks successful vault escapes, not attempts.",
+   "unit": "bank vaults",
+   "guide": "A silver counter trophy: rob 5 bank vaults and escape each time — a robbery only counts once you are clear, not when the vault opens (PSN tracks the count to 5, per PSNProfiles). Treat each bank as a small heist: plan the exit vehicle and route before going in, and vary which banks you hit as new ones become reachable.",
+   "steps": ["Rob a bank vault", "Escape and lose the heat", "Repeat at 5 vaults in total"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -1150,20 +694,11 @@
    "hidden": false,
    "stage": 3,
    "missable": false,
-   "guide": "Rob an armored truck and escape. Armored trucks appear on the road and at stops; hit one, take what it carries and break away cleanly. The trophy needs the escape as well as the robbery.",
+   "guide": "Rob an armored truck on the road and escape with the take. Armored trucks are hardened targets, so bring a plan for opening one — block it, deal with its guards, grab the money and switch vehicles to break the chase. The trophy needs the escape as well as the robbery.",
+   "steps": ["Find an armored truck in traffic", "Stop and rob it", "Escape the response"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -1175,20 +710,11 @@
    "hidden": false,
    "stage": 2,
    "missable": false,
-   "guide": "Explore all of Leonida: regions count as explored as you travel through them and lift the map's fog. Deliberate road trips to the map's edges finish whatever the story leaves covered. Pair the sweep with collectible routes so the miles do double duty.",
+   "guide": "Explore the whole state of Leonida — every region of the map uncovered. This fills in naturally across a Platinum run: story missions, collectibles and stranger strands pull you into most districts, and the last grey corners are best swept in the endgame with a fast vehicle or aircraft. If the map shows an unvisited pocket, that pocket is the task.",
+   "steps": ["Uncover the map district by district as you play", "Sweep any remaining unvisited areas in the endgame"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -1200,20 +726,11 @@
    "hidden": false,
    "stage": 3,
    "missable": false,
-   "guide": "Rob an Illegal Operation belonging to each gang in the game. Every gang runs operations somewhere in Leonida, and one operation per gang is enough — vary your targets instead of farming a single gang, and keep a note of which gangs you have already covered.",
+   "guide": "Rob one illegal operation belonging to each gang in Leonida — breadth is the requirement, so a second robbery of the same gang adds nothing. As you uncover each gang's territory through the story and exploration, hit one of its operations and note which gangs are still outstanding here, then hunt the missing ones in the endgame.",
+   "steps": ["Identify each gang's illegal operations as you explore", "Rob one operation per gang", "Track which gangs remain in your notes"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -1225,20 +742,11 @@
    "hidden": true,
    "stage": 2,
    "missable": false,
-   "guide": "Enjoy a cocktail with a view on Ocean Beach. This is a small, story-adjacent moment: when the game puts you near Ocean Beach early on with a drink in reach, take the moment instead of rushing past it. Published lists class it with the hidden one-off trophies; the exact scene is a light story beat, so no guide pins down more without spoilers.",
+   "guide": "A hidden one-off on Ocean Beach: order or enjoy a cocktail somewhere with a view over the beach. Head to the Ocean Beach strip, find a bar or spot serving drinks with the ocean in front of you, and take the cocktail — a quiet two-minute trophy among the noisy ones.",
+   "steps": ["Go to Ocean Beach", "Find a drink spot with an ocean view", "Enjoy the cocktail"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "PlanetGTA6 — GTA 6 trophies, cross-checked against PSN",
-     "url": "https://www.planetgta6.com/en/gta-6-trophies/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -1250,20 +758,11 @@
    "hidden": true,
    "stage": 2,
    "missable": false,
-   "guide": "Smash your way out of a vehicle showroom in classic style — drive one of its cars out through the showroom glass. Find a vehicle showroom, get into a car on the floor and exit through the window rather than the door. The description nods to a classic series moment; no source yet names one specific showroom, so any showroom with a drivable car is the place to try.",
+   "guide": "A hidden one-off: get into a vehicle inside a showroom and drive it out through the glass, in the classic style the description nods to. Enter a vehicle showroom, take a car on the floor, and exit through the storefront rather than the door. Expect attention afterwards — the smash is the point.",
+   "steps": ["Enter a vehicle showroom", "Get into a display car", "Drive out through the front glass"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "PlanetGTA6 — GTA 6 trophies, cross-checked against PSN",
-     "url": "https://www.planetgta6.com/en/gta-6-trophies/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -1275,20 +774,11 @@
    "hidden": true,
    "stage": 2,
    "missable": false,
-   "guide": "Play at the Kolt & Associates bowling alley — the 'follow-through' in the description is your bowling action. Head to the alley, start a game and bowl a frame or two. It is a one-off leisure stop rather than a scored challenge.",
+   "guide": "A hidden one-off at the Kolt & Associates bowling alley: go bowling there and follow through — play the alley's bowling game rather than just visiting. The description's 'follow-through' points at completing your game on the lanes, so finish what you start on the lane.",
+   "steps": ["Visit the Kolt & Associates bowling alley", "Play a game of bowling", "See it through to the end"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "PlanetGTA6 — GTA 6 trophies, cross-checked against PSN",
-     "url": "https://www.planetgta6.com/en/gta-6-trophies/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -1300,24 +790,11 @@
    "hidden": true,
    "stage": 2,
    "missable": false,
-   "guide": "The description — 'A partnership with mass appeal' — is deliberately vague, and no published source pins the exact action down yet, so this guide will not fake a method. It sits with the partner trophies, so expect a moment with Jason and Lucia together that draws a crowd or an audience once both are playable from Chapter 2. This entry will be updated when a verified trigger is published.",
+   "guide": "Honesty first: no source we cite has pinned down this trophy's exact trigger yet — the official description says only 'a partnership with mass appeal'. The wording points at something Jason and Lucia do together that draws a crowd or an audience, but we will not present a guess as a method. When a cited guide verifies the trigger, this entry will say so; until then, keep an eye on joint activities with the pair and record what worked in your notes.",
+   "steps": ["No verified method is published yet", "Try joint Jason-and-Lucia activities and note any unlock", "Check back as guides verify the trigger"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "PlanetGTA6 — GTA 6 trophies, cross-checked against PSN",
-     "url": "https://www.planetgta6.com/en/gta-6-trophies/"
-    },
-    {
-     "name": "Output Lag — GTA 6 trophy list, missables and platinum time",
-     "url": "https://outputlag.com/guides/gta-6-trophy-list/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -1329,22 +806,15 @@
    "hidden": true,
    "stage": 2,
    "missable": false,
-   "missableNote": "Permanent-choice warning (not a missable): choices that push your Criminal Profile to 'Irredeemable' cannot be undone, per GTA-Zone. Choose deliberately.",
    "target": 500,
-   "guide": "PSN tracks a count of 500 toward this trophy, tied to the choices that shape your Criminal Profile. Play deliberately: your choices move the profile, and pushing it all the way to 'Irredeemable' is permanent, so do not burn that path casually. The counter here mirrors the PSN progress count.",
+   "unit": "profile choices",
+   "missableNote": "Permanent-choice caution: the choices that move your Criminal Profile add up, and pushing the profile all the way to 'Irredeemable' is permanent (GTA-Zone). The trophy itself is not missable, but the profile you build along the way cannot be undone — do not max out the extreme for fun on a save you care about.",
+   "guide": "A hidden counter trophy: the choices you make that shape your Criminal Profile accumulate, and PSN tracks the count to 500 (PSNProfiles). Play deliberately rather than randomly — each qualifying choice moves the profile — and keep an eye on the far end of the scale: GTA-Zone notes that pushing the profile to 'Irredeemable' is permanent, so steer your choices rather than slamming one extreme. Five hundred choices is a whole playthrough's worth, so this lands late.",
+   "steps": ["Make profile-shaping choices as they arise", "Track the count toward 500 here", "Avoid pinning the profile at 'Irredeemable' unless you mean it — it is permanent"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" },
+    { "label": "GTA-Zone — GTA 6 trophy list and roadmap notes", "url": "https://gta-zone.com/news/gta-6-trophies-achievements/" }
    ]
   },
   {
@@ -1356,20 +826,11 @@
    "hidden": true,
    "stage": 2,
    "missable": false,
-   "guide": "The description — 'Second time's the charm' — says this trophy rewards failing once and succeeding on the retry, but it does not name the activity, and no source pins it down yet. If an attempt at a repeatable task fails, retry it straight away instead of moving on. This guide will be updated when the exact trigger is verified.",
+   "guide": "Honesty first: no source we cite has pinned down this trophy's exact trigger yet — the official description says only 'second time's the charm'. The wording suggests succeeding at something on a second attempt after failing it once, but which activity it belongs to is not verified anywhere we can cite. We will not dress a guess up as a method: when a cited guide verifies it, this entry will say so.",
+   "steps": ["No verified method is published yet", "Note any second-attempt success that unlocks it", "Check back as guides verify the trigger"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "PlanetGTA6 — GTA 6 trophies, cross-checked against PSN",
-     "url": "https://www.planetgta6.com/en/gta-6-trophies/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -1381,20 +842,11 @@
    "hidden": true,
    "stage": 2,
    "missable": false,
-   "guide": "The description — 'What the hell just happened?' — marks a strange world event or encounter somewhere in Leonida. No published source yet identifies the exact event, so explore odd map markers and unusual encounters rather than trusting any single claimed location. The event will be named here once it is verified.",
+   "guide": "Honesty first: no source we cite has pinned down this trophy's exact trigger yet — the official description ('What the hell just happened?') and the name together hint at witnessing one of the game's strange, possibly otherworldly, world events. Which event, and where, is not verified by any guide we can cite, so this guide will not invent a location. Explore Leonida's odd corners, and if something inexplicable happens, you will likely have found it — note the place here for other hunters.",
+   "steps": ["No verified method is published yet", "Explore and watch for strange world events", "Record the location in your notes if it unlocks"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "PlanetGTA6 — GTA 6 trophies, cross-checked against PSN",
-     "url": "https://www.planetgta6.com/en/gta-6-trophies/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -1406,20 +858,11 @@
    "hidden": true,
    "stage": 2,
    "missable": false,
-   "guide": "Bowl a pedestrian over with a melee drive-by: strike someone with a melee attack from a moving vehicle so they go down like a pin. Line up a lone target, keep your speed modest so the swing connects, and hit as you pass. It is the knockdown that counts, not a kill.",
+   "guide": "A hidden one-off with a clear method in its description: knock a person down with a melee attack delivered from a moving vehicle — a melee drive-by. Line up a pedestrian from a car or bike at low speed, strike them with a melee swing as you pass, and the pin falls. Low speed keeps it controlled and keeps the wanted level out of it as much as possible.",
+   "steps": ["Get into a vehicle", "Approach a pedestrian at low speed", "Land a melee hit from the vehicle as you pass"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "PlanetGTA6 — GTA 6 trophies, cross-checked against PSN",
-     "url": "https://www.planetgta6.com/en/gta-6-trophies/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -1432,21 +875,12 @@
    "stage": 3,
    "missable": false,
    "target": 250000,
-   "unit": "$",
-   "guide": "Earn $250,000 by laundering Marked Bills through your contacts. Marked Bills come from robberies and scores; instead of sitting on them, pass every batch to your laundering contacts as soon as you hold them. It is a long accumulation, so start early and let your ordinary crime income carry the counter.",
+   "unit": "money",
+   "guide": "A money counter: earn a cumulative $250,000 by laundering Marked Bills through your contacts, tracked by PSN to the full amount (PSNProfiles). Marked bills come from scores and robberies, so feed them to your laundering contacts steadily instead of stockpiling them, and log the running total here after each handover. It is a long accumulation, best run in parallel with the robbery trophies.",
+   "steps": ["Collect Marked Bills from robberies and scores", "Launder them through your contacts", "Reach $250,000 laundered in total"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -1459,21 +893,12 @@
    "stage": 2,
    "missable": false,
    "target": 100000,
-   "unit": "$",
-   "guide": "Spend $100,000 across all shops. Ordinary play covers much of this — vehicles, clothes, weapons and services all feed the same pot. Do not hoard cash: steady spending through the story gets there without a dedicated grind.",
+   "unit": "money",
+   "guide": "A money counter: spend a cumulative $100,000 across all of the game's shops, tracked by PSN to the full amount (PSNProfiles). Ordinary play covers much of it — vehicles, clothes, weapons and property spending all happen in shops — so simply avoid hoarding cash on a Platinum run and log the total here from time to time. If it lags late, a deliberate shopping round closes it quickly.",
+   "steps": ["Spend at shops as you play — do not hoard", "Log the running total here", "Reach $100,000 spent"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -1485,20 +910,11 @@
    "hidden": false,
    "stage": 2,
    "missable": false,
-   "guide": "Purchase all garage properties on the market. Garages list for sale as you progress; buy each one when it appears rather than saving for a single spree, since garage space also serves your vehicle collecting. Solid income comes first — story and crime payouts feed this.",
+   "guide": "Buy every garage property on sale in Leonida. Garages appear as purchasable properties as you explore and progress, so buy them as your income allows rather than saving the whole set for the endgame — the laundering and robbery trophies keep the money coming. The trophy lands with the final garage deed.",
+   "steps": ["Buy each garage property as it becomes available", "Keep income flowing from robberies and laundering", "Own every garage"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   },
   {
@@ -1510,20 +926,11 @@
    "hidden": false,
    "stage": 2,
    "missable": false,
-   "guide": "Register 10 vehicles to the Scooter Bros app. When you acquire a vehicle you want to keep, register it through the app instead of leaving it unregistered. Ten registrations accumulate quickly once you start swapping cars for Whip It Good.",
+   "guide": "Register 10 vehicles to the Scooter Bros app, as the official description sets out. Whenever you take a vehicle you intend to keep or use, register it in the app there and then; ten registrations accumulate quickly once the habit forms, and it pairs with Whip It Good's vehicle discovering.",
+   "steps": ["Open the Scooter Bros app when you take a new vehicle", "Register it", "Reach 10 registered vehicles"],
    "sources": [
-    {
-     "name": "Exophase — the official GTA VI PlayStation trophy list",
-     "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
-    },
-    {
-     "name": "PSNProfiles — GTA VI trophies and PSN progress targets",
-     "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
-    },
-    {
-     "name": "GTA-Zone — GTA 6 trophy list and roadmap notes",
-     "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
-    }
+    { "label": "Exophase — official PS5 trophy list", "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/" },
+    { "label": "PSNProfiles — trophy list and PSN progress targets", "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi" }
    ]
   }
  ]
