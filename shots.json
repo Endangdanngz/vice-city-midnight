@@ -1,5 +1,1 @@
-[
-  { "file": "1-checklist.jpg", "path": "/", "viewport": { "width": 1280, "height": 800 } },
-  { "file": "2-silver.jpg", "path": "/", "grade": "silver", "viewport": { "width": 1280, "height": 800 } },
-  { "file": "3-bronze.jpg", "path": "/", "grade": "bronze", "scroll": 1400, "viewport": { "width": 1280, "height": 800 } }
-]
+[{"file":"1-checklist.jpg","path":"/?shot=checklist&seed=demo","view":"Tracker & Guides — dashboard, filters, checklist with counters, and the guide pane open on Positive Mental Attitude, the one missable trophy; demo progress seeded (13 of 55 earned), spoiler protection on","viewport":{"height":1024,"width":1280}},{"file":"2-roadmap.jpg","path":"/?shot=roadmap&seed=demo","view":"Roadmap — the four stages to the Platinum with live earned roll-ups and the cited facts box","viewport":{"height":1024,"width":1280}},{"file":"3-missables.jpg","path":"/?shot=missables&seed=demo","view":"Missables — the Positive Mental Attitude Chapter 1 warning, the Actions Speak Louder permanent-choice caution, and the save-habit checklist","viewport":{"height":1024,"width":1280}},{"file":"4-planner.jpg","path":"/?shot=planner&seed=demo","view":"Next Up planner — missable first, then roadmap stage order, then the counter nearest to done, each with its reason","viewport":{"height":1024,"width":1280}}]
